@@ -1,0 +1,43 @@
+@charset "utf-8";
+/*초기화*/
+html{scroll-behavior: smooth;}
+html, body{font-family:"Noto Sans KR","돋음, Dotum","Arial","sans-serif";}
+html, body{color:#010101; font-size:12pt; line-height:1.4em;margin:0; padding:0; width:100%; height:100%; white-space:normal; word-break:keep-all;} 
+*{outline:none; box-sizing:border-box; line-height:revert;}
+ul,ol,li{list-style:none;}
+img,fieldset,iframe,form{border:0 none;}
+a,a:hover,a:active,a:focus{color:inherit; text-decoration:none; outline:none;}
+button, input, select, textarea{font-family:revert; font-size:revert; line-height:revert; font-weight:revert;}
+select{background:none;}
+button{border:none;}
+a, button{cursor:pointer;}
+table{table-layout:fixed; border-collapse:collapse; border-spacing:0;}
+i{font-style:normal;}
+h1,h2,h3,h4,h5,h6{font-size:revert;}
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td, abbr, acronym, address, big, cite, code, ins, small, sub, sup {padding:0; margin:0; font-weight:revert; font-size:revert;}
+* .glyphicon{font-family: 'Glyphicons Halflings';}
+pre{font-family:"Noto Sans KR","돋음, Dotum","Arial","sans-serif"; color:revert; line-height:revert; background:none; border:none; }
+input:-webkit-autofill{-webkit-box-shadow: 0 0 0 1000px white inset;} /* 자동완성 배경색제거  */
+label{max-width:revert; margin:0; font-weight:revert;}
+
+.Clear{content:""; clear:both; display:block; height:0px;}
+.Hide{display:none;}
+.clearfix:before, .clearfix:after {content:" ";display:table;}
+.clearfix:after {clear:both;}
+.clearfix {*zoom:1;}
+.hide, .blind{position:absolute;top:0;left:0;width:1px;height:1px;overflow:hidden;visibility:hidden;font-size:0;line-height:0}
+
+/* 초기화 */
+h1, h2, h3, h4, h5, h6{}
+q:before,q:after { content:''; }
+abbr,acronym { border:0; }
+address, abbr, address, big, cite, code, ins, small, sub, sup, em{ font-weight:normal; font-style:normal;}
+blockquote, q{quotes:none;}
+a img, input, textarea, select, img{ vertical-align:middle;}
+time, progress, mark, output {}
+img, input, select{vertical-align:middle;}
+article, aside, figure, figure img, figcaption, hgroup, footer, header, main, nav, section, label, video, object {}
+
+
+
+

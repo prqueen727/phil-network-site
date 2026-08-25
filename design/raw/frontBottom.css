@@ -1,0 +1,393 @@
+@charset "utf-8";
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 지점퀵링크 */
+.Keyword_Link{}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 키워드 */
+.Keyword{content:""; clear:both; display:block; width:100%; padding:2% 0%;}
+.Keyword .Inner{}
+.Keyword strong{color:#a1a1a1; font-size:9pt; line-height:1.8em;}
+.Keyword pre{display:block; width:100%; color:#a1a1a1; font-size:9pt; line-height:1.8em; text-align:justify; white-space:normal; vertical-align:top;  word-break:keep-all;   resize:none; border-radius:5px; border: 1px solid #ccc; padding:2%; overflow-wrap:break-word;} /*  word-break:keep-all;  */
+	/* tts프로그램 */
+	.Keyword .TextSpeech{position:relative; display:block; width:100%; text-align:left; margin-top:0.5em;}
+	.Keyword .TextSpeech p{position:relative; display:table; width:100%;}
+	.Keyword .TextSpeech p button{position:relative; display:inline-table; border:1px solid #ccc; color:#a1a1a1; padding:5px; border-radius:3px; background:none;}
+	.Keyword .TextSpeech p button:hover{background-color:#f7f7f7;}
+	.Keyword .TextSpeech p span{position:relative; display:inline-table; color:#a1a1a1; margin-left:0.5em; font-size:9pt;}
+
+	/* 구분 숨김 */
+	.mainWrap .Keyword{display:none;}
+	.contactWrap  .Keyword{display:none;}
+	.boardWrap  .Keyword{display:none;}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 하단공통컨텐츠 */
+.CommArea_Tail{content:""; clear:both; display:block; position:relative; }
+	.CommContent_Bottom{}
+	/* [배너관리] 25번배너 */
+	.Banner25{}
+	.Banner25 ul{}
+	.Banner25 li{text-align:center;}
+	.Banner25 a{}
+	.Banner25 img{margin:auto;}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 하단푸터전용 */
+.Footer_Area{content:""; clear:both; display:block; position:relative; width:100%; text-align:center; margin:auto; padding-bottom:80px;} /*  padding-bottom:80px; 퀵을위한 하단 여백삽입 */
+.Footer_AreaComm{} /* 통합 */
+.Footer_AreaBranch{} /* 지점 */
+	/* 영역 */
+	.Footer_Area > .Inner{position:relative;}
+	/* ---------------------- */
+	/* 빠른상담신청 */
+	.Contact_Quick{font-family:'Pretendard';}
+	.Contact_Quick{content:""; clear:both; position:fixed; bottom:0px; width:100%; text-align:center; margin:auto; background:#000; background-color:rgba(0, 0, 0, 0.6);  padding:15px 50px; z-index:900;}
+	.Contact_Quick >.Inner{min-width:1400px; max-width:1400px;}	
+		/* 타이틀 */
+		.Contact_Quick .Title{display:block; width:100%; text-align:center; margin-bottom:3%;}
+		.Contact_Quick .Title strong{display:block; font-size:15pt; letter-spacing:-1px;}
+		/* 내용 */
+		.Contact_Quick *{color:#fff;}
+		.Contact_Quick dl{display:table; width:100%; table-layout:fixed;}
+		.Contact_Quick dt{display:table-cell; position:relative; vertical-align:middle; text-align:center;}
+		.Contact_Quick dd{display:table-cell; position:relative; vertical-align:middle; padding-right:5px; width:10%;}
+		.Contact_Quick dd label input,
+		.Contact_Quick dd select,
+		.Contact_Quick dd select option,
+		.Contact_Quick dd textarea{color:#000; background-color:#fff; border:1px solid #fff; border-radius:0; resize:none; font-family:'Pretendard';}
+		.Contact_Quick dd input{height:30px; vertical-align:middle;}
+		.Contact_Quick dd select{display:block; width:100%; height:30px; vertical-align:middle;  -webkit-appearance:none; background:url('/img/common/chevron-down.svg') no-repeat right 13px center; background-size:11px; -moz-appearance:none;/*for firefox*/ appearance:none; box-sizing: border-box; background-color:#fff; padding-left:10px;}
+		.Contact_Quick dd select::-ms-expand{display:none;/*for IE10,11*/}
+		.Contact_Quick dd label{display:table; width:100%; text-align:center; margin:auto;}
+		.Contact_Quick dd label p{display:table-cell; display:none; padding-right:5px;}
+		.Contact_Quick dd label .InputBox{display:table-cell; }
+		.Contact_Quick dd label .InputBox *{display:inline-block; }
+		.Contact_Quick dd label .InputBox input{width:100%; padding:0px 5px;}
+		.Contact_Quick dd label.BranchName{display:block; width:100%; height:30px;text-align:left; vertical-align:middle; border:1px solid #d0d0d0; border-radius:3px; background-color:#fff; }
+		.Contact_Quick dd label.BranchName .InputBox{color:#000; line-height:30px; padding:0px 5px;}
+		/* 버튼 */
+		.Contact_Quick .BtnBox{}
+		.Contact_Quick .Btn{width:100%; font-size:14pt; font-weight:normal; vertical-align:middle; padding:15px 0px;}
+		/* 동의 */
+		.Contact_Quick .AgreeBox{display:inline-table; padding:0 10px;}
+		.Contact_Quick .AgreeBox label{color:#ffffff; display:inline-table; margin:0; vertical-align:middle;}
+		.Contact_Quick .AgreeBox label i{color:#fff !important; font-size:11pt;}
+		.Contact_Quick .AgreeBox label:first-child{margin-bottom:3px;}
+		.Contact_Quick .AgreeBox label small{ Zvertical-align:middle;}
+		.Contact_Quick .AgreeBox label big{color:#fff !important; letter-spacing:-1px; line-height:1; vertical-align:middle;}
+		.Contact_Quick .AgreeBox a{color:#fff; vertical-align:middle; display:inline-table; line-height:1; padding:3px 4px; margin-left:5px; border-radius:2px;}
+		/* 길이설정  */
+		.Contact_Quick dl dt{width:9%;}
+		.Contact_Quick dl dd:nth-child(2){}
+		.Contact_Quick dl dd:nth-child(3){}
+		.Contact_Quick dl dd:nth-child(4){}
+		.Contact_Quick dl dd:nth-last-child(4){}
+		.Contact_Quick dl dd:nth-last-child(3){}
+		.Contact_Quick dl dt:nth-last-child(2){width:20%;}
+		.Contact_Quick dl dt:last-child{}
+
+	/* ---------------------- */
+	/* 상세정보 */
+	.Company_Area{display:table; table-layout:fixed; position:relative; width:100%; padding:50px 0px;}
+	.Company_Area > .Inner{display:table;  table-layout:fixed;}
+	.Company_Area > .Inner > div{vertical-align:top; font-family:'SUIT', sans-serif;}
+		/* 대표전화 */
+		.Company_Area .Tel{display:table-cell; position:relative; width:22%;}
+		.Company_Area .Tel span{color:#767676; font-size:10.5pt; line-height:1.5em; font-weight:normal; }
+		.Company_Area .Tel a p{font-size:30pt; line-height:1em; font-weight:700; letter-spacing:-1px; font-family:'SUIT', sans-serif;}
+			/* 카톡및주소(기본숨기고 사용할 네트워크만 노출) */
+			.Company_Area .contactInfo{display:block; position:relative; margin-top:1em; display:none;} /* 숨김 */
+			.Company_Area .contactInfo .kakao{display:block; position:relative; }
+			.Company_Area .contactInfo .kakao i{display:inline-block; position:relative; border-radius:3px; background-color:#fee500; padding:1px; margin-right:0.5em;}
+			.Company_Area .contactInfo .kakao i img{display:inline-block; width:1em;}
+			.Company_Area .contactInfo .map{display:block; position:relative;}
+			.Company_Area .contactInfo .map strong{display:block;}
+			.Company_Area .contactInfo .map span{display:block;}
+		/* 지점리스트열기 - (대표전화대신)네트워크3사용중 */
+		.Company_Area .section1{display:table-cell; position:relative; width:22%; vertical-align:middle !important;}
+		.Company_Area .section1 .Btn_BranchrOpen{}
+		/* 운영시간 */
+		.Company_Area .Time{display:table-cell; position:relative; width:28%;}
+		.Company_Area .Time label{display:table; width:100%;}
+		.Company_Area .Time label pre{font-size:11pt; line-height:1.6em; font-weight:normal; vertical-align:top; background:none; border:none; padding:0px; margin:0px; resize:none; font-family:'SUIT', sans-serif;}
+		.Company_Area .Time label p{display:block; font-size:11pt; line-height:1.6em; font-weight:bold;}
+		.Company_Area .Time pre.Left{display:table-cell; width:40%;}
+		.Company_Area .Time pre.Right{display:table-cell;}
+		.Company_Area .Time label + p{display:block; font-size:11pt; line-height:1.6em; font-weight:bold;}
+		
+		/* 링크 */
+		.Company_Area .Link{display:table-cell; position:relative; width:50%;}
+		.Company_Area .Link ul{display:table; width:100%;}
+		.Company_Area .Link li{display:table-cell; width:25%; vertical-align:middle; text-align:center; margin:auto; border-right:1px solid #dbdbdb;}
+		.Company_Area .Link li:last-child{border-right:none;}
+		.Company_Area .Link a{display:inline-block; position:relative; text-align:center;}
+		.Company_Area .Link a i{position:relative; font-size:28pt;}
+		.Company_Area .Link a img{display:block; margin:auto;}
+		.Company_Area .Link a p{color:#3d3d3d; font-size:12pt; font-weight:bold; margin-top:1em;}
+			/* [배너관리] 26번배너 */
+			.Banner26{}
+			.Banner26 li{}
+			.Banner26 a{}
+			.Banner26 img{max-width:100px;}
+				/* 등록된배너가없다면 지도표기 */
+				.Banner26Other{}
+				.Banner26Other .aboutmap26{display:block; position:relative; width:100%; height:10em; margin:auto;}
+				.Banner26Other #aboutmap26{}
+				.Banner26Other p{display:block; font-size:10pt; font-weight:200; margin-bottom:0.5em;}
+				.Banner26Other p span{}
+					/* 지도크게보기링크 */
+					.Banner26Other .mapLink{display:block; position:absolute; left:0%; right:0%; top:0%; bottom:0%; width:100%; height:100%;}
+					.Banner26Other .mapLink a{display:block; position:relative; width:100%; height:100%;}		
+
+	
+
+	/* ---------------------- */	
+	/* [배너관리] 27번배너 */
+	.Banner27{display:block; position:relative; width:100%;}
+	.Banner27 ul{display:block; position:relative;}
+	.Banner27 li{display:block; position:relative;}
+	.Banner27 a{display:block; position:relative;}
+	.Banner27 img{max-width:100%;}
+
+	/* ---------------------- */
+	/* 기본정보 */
+	.Bottom_Area{content:""; clear:both; display:block; position:relative; width:100%; text-align:center; margin:auto;}
+	.Bottom_Area.Inner{}
+		/* 퀵링크 */
+		.Bottom_Area .Link{display:block; width:100%; text-align:center; margin:auto; border-top:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb;}
+		.Bottom_Area .Link .Inner{display:table;  table-layout:fixed;}
+		.Bottom_Area .Link ul{display:table-cell; width:50%; text-align:left;}
+		.Bottom_Area .Link ul li{display:inline-table; padding:1em 0px;}
+		.Bottom_Area .Link ul li:first-child a{border:none;}
+		.Bottom_Area .Link ul li:last-child a{padding-right:0px;}
+		.Bottom_Area .Link ul a{font-size:10.5pt; border-left:1px solid #e9e9e9; padding:0px 5px;}
+		.Bottom_Area .Link ul a img{}
+		.Bottom_Area .Link ol{display:table-cell; width:50%; text-align:right;}
+		.Bottom_Area .Link ol li{display:inline-table; padding:0px 5px;}
+		.Bottom_Area .Link ol li:last-child a{padding-right:0px;}
+		.Bottom_Area .Link ol a{}
+		.Bottom_Area .Link ol a strong{font-size: 12pt;}
+		.Bottom_Area .Link ol a img{}
+			/* [배너관리] 28번배너 */
+			.Banner28{}
+			.Banner28 ul{}
+			.Banner28 li{}
+			.Banner28 a{}
+			.Banner28 img{max-height:50px;}
+		/* 필수정보 */
+		#SkipNavAdd{}
+		.Bottom_Area .Add{display:block; width:100%; font-weight:normal; font-size:10.5pt; line-height:1.6em;  text-align:center; padding:50px 0px;}
+		.Bottom_Area .Add .Inner{text-align:center;}
+		.Bottom_Area .Add strong{display:block; margin-bottom:35px;}
+		.Bottom_Area .Add img{}
+		.Bottom_Area .Add p{}
+		.Bottom_Area .Add p span{}
+		.Bottom_Area .Add p span + span{padding-right:1em;}
+		.Bottom_Area .Add p .Item01{display:block;} /* 주소 */
+		.Bottom_Area .Add p .Item02{} /* 상호명 */
+		.Bottom_Area .Add p .Item03{} /* 대표자명 */
+		.Bottom_Area .Add p .Item04{} /* TEL */
+		.Bottom_Area .Add p .Item05{} /* FAX */
+		.Bottom_Area .Add p .Item06{} /* 사업자등록번호 */
+		.Bottom_Area .Add p b{display:block; width:100%; color:#838383; font-weight:normal; font-size:9pt; line-height:2em;} /* COPYRIGHT© */
+		.Bottom_Area .Add p .create{font-size:10px !important; color:#4e4e4e; line-height:3em; display:block;}
+		.Bottom_Area .Add p .create img{height:8.5px; width:auto; opacity:0.8; padding-left:2px; opacity:.5;}
+		/* 지점정보 */
+		.Bottom_Area .BranchBox{font-size:10pt; letter-spacing:-1px; margin-bottom:2em;}
+		.Bottom_Area .BranchList4{width:70%;}
+
+		/* 구분 */
+		/* 브레인메디링크숨김 */
+		.NC00037 .Bottom_Area .Add p .create{position:relative; opacity:0 !important; z-index:-1;}
+		.NC00078 .Bottom_Area .Add p .create{position:relative; opacity:0 !important; z-index:-1;}
+		.NC00166 .Bottom_Area .Add p .create{position:relative; opacity:0 !important; z-index:-1;}
+		.NC00168 .Bottom_Area .Add p .create{position:relative; opacity:0 !important; z-index:-1;}
+		
+		.NC00001 .Company_Area .Tel p{font-size:26pt; line-height:1.1em; font-weight:100; letter-spacing:0px;}/* 네트워크1 */
+		.NC00001 .Company_Area .Tel span{color:#010101; font-size:15pt; line-height:1.5em; font-weight:600;}/* 대표전화 */
+		.NC00001 .Company_Area .Tel a:first-child p{font-weight:bold; line-height:1.3em}
+		.NC00001 .Company_Area .Tel a:nth-child(2) span{line-height:2em;}
+		.NC00001 .Company_Area .Tel a:nth-child(2) p, .NC00001 .Company_Area .Tel a:nth-child(3) p{font-size:17pt; color:#555;}
+		.NC00001 .Company_Area .Time{width:20%;}/* 운영시간 */
+		.NC00001 .Company_Area .Link{width:58%;}/* 네트워크3 */
+		.NC00010 .Company_Area .Link li{width:calc(100% / 6); vertical-align:bottom;}/* 네트워크3 */
+		.NC00010 .Company_Area .Link a{opacity:0.3; letter-spacing:-1px;} 
+		.NC00010 .Company_Area .Link a:hover{opacity:1; transition: .5s;}
+		.NC00010 .Company_Area .Link a img{}
+		.NC00010.C00024 .Company_Area .section1{display:none;}
+		.NC00010 .Footer_AreaComm .Company_Area .Tel{display:none;}
+		.NC00010 .Footer_AreaComm .Company_Area .Time{display:none;}
+		.NC00010 .Company_Area .Tel{display:none;}
+		.NC00010 .Company_Area .Time{display:none;}
+		.NC00010 .Bottom_Area{background-color:#e3deda;}
+		.NC00010 .Bottom_Area .Add *{font-size: 10pt; }
+		.NC00010 .Bottom_Area .Add span,
+		.NC00010 .Bottom_Area .Add span *{color: #767676 !important;}
+		.NC00010 .Bottom_Area .Add img{height:50px;}
+		.NC00010.C00024 .BranchBox{} /* 숨김>>공개처리(20210304 링크없게) */
+		.NC00010 .Bottom_Area .Add p .Item04{display:none;} /* TEL */
+		.NC00030 .Footer_Area{background-color:#333;} /* 네트워크4 */
+		.NC00030 .Company_Area{color:#fff; }
+		.NC00030 .Company_Area > .Inner > div{vertical-align:middle;}
+		.NC00030 .Company_Area .Tel p{color:#fff;}
+		.NC00030 .Bottom_Area{color:#fff; } 
+		.NC00030 .Bottom_Area .Link{border:none;}
+		.NC00030 .Bottom_Area .Link .Inner{border-bottom: 1px solid #acacac;} 
+		.NC00030 .Bottom_Area .Link ul a{color:#fff; border:none;}
+		.NC00030 .Bottom_Area .Link ol li a img{height:30px; opacity:0.6;}
+		.NC00030 .Bottom_Area .Add strong{margin-bottom:0px;}
+		.NC00030 .Bottom_Area .Add img{height:70px;}
+		.NC00030 .Bottom_Area .Add p .create{color:#b4b4b4;}
+		.NC00030 .Bottom_Area .Add p .create img{opacity:1;}
+		.NC00032 .Bottom_Area .Add p .create{color:#b4b4b4;}
+		.NC00032 .Bottom_Area .Add p .create img{opacity:1;}
+		.NC00037 .Company_Area{display:none;}/* 숨김 20210527*/
+		.NC00037 .Bottom_Area{background-color:#f1edec;}
+
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 퀵메뉴 */
+.QuickArea{position:relative;}
+.QuickAreaComm{} /* 통합 */
+.QuickAreaBranch{} /* 지점 */
+.QuickArea section{display:table; position:fixed; top:140px; right:0; z-index:998;}
+.QuickArea a{color:#ffffff;}
+	/* 버튼 */
+	.QuickArea_Btn{display:table-cell; vertical-align:top; cursor:pointer;}
+	.QuickArea_Btn a{display:inline-block; width:25px; height:100px; text-align:center; background-color:#000; border-radius:10px 0px 0px 10px; padding-top:50%; overflow:hidden;}
+	.QuickArea_Btn a p{display:inline-block; width:10px; color:#fff; font-size:10pt; line-height:1.15em; text-transform:uppercase; word-break:break-all; font-family:'Roboto',sans-serif;}
+	.QuickArea_Btn .CLOSE{float:none; font-size:inherit; font-weight:normal; line-height:1; text-shadow:none; opacity:1; /* summernote때문 */}
+	.QuickArea_Btn .OPEN{display:none;}
+	/* 링크 */
+	.QuickArea_Link{width:95px; vertical-align:top;}
+	.QuickArea_Link ul{width:100%; background-color:#000;  border-radius:0px 0px 0px 10px;}
+	.QuickArea_Link li{display:block; position:relative; width:95px; border-bottom:1px solid #2d2d2d; text-align:center; padding:10px 0;}
+	.QuickArea_Link li:nth-child(1){padding:10px 10px;}
+	.QuickArea_Link li:last-child{border-bottom:none;}
+	.QuickArea_Link a{display:block; position:relative; width:100%;}
+	.QuickArea_Link a i{font-size:20pt;}
+	.QuickArea_Link a span{display:block; font-size:9pt; letter-spacing:-1px; margin-top:5px;}
+	.QuickArea_Link a img{vertical-align:top;}
+	.QuickArea_Link .Tel{}
+	.QuickArea_Link .Tel *{font-family:'SUIT',sans-serif; font-weight:500;}
+	.QuickArea_Link .Tel a{text-align:left; letter-spacing:1px;}
+	.QuickArea_Link .Tel a small{font-size:8pt;}
+	.QuickArea_Link .Tel a p{font-size:18pt; line-height:1em; margin-top:3px;}
+	.QuickArea_Link .Top{}
+	.QuickArea_Link .Top i{display:inline-block; position:relative; font-size:11pt;}
+	.QuickArea_Link .Top span{display:inline-block; letter-spacing:1px; font-family:'Roboto',sans-serif;}
+	.QuickArea_Link a i span{position:absolute; top:10%; left:38%; color:#000; font-size:7pt; letter-spacing:-1px; font-weight:bold;}
+	.QuickArea_Link .Quick_GoTop{padding:0px;}
+	.QuickArea_Link .Quick_GoTop a{}
+	.QuickArea_Link .Quick_GoTop a p{display:inline-table;}
+	.QuickArea_Link .Quick_GoTop a i{display:table-cell; font-size:12pt;}'
+	.QuickArea_Link .Quick_GoTop a span{display:table-cell; margin-top:0px;}
+	/* [배너관리] 20번배너 네트워크3에만이미지노출 */
+	.Banner20{}
+	.Banner20 ul{}
+	.Banner20 li{}
+	.Banner20 a{}
+	.Banner20 a i{}
+	.Banner20 a span{}
+	.Banner20 a img{display:none; width:40px; margin:auto;}
+
+	/* 구분 */
+	.NC00001.QuickArea{} /* 네트워크1 */
+	.NC00005.QuickArea{} /* 네트워크2 */
+	.NC00010.QuickArea{} /* 네트워크3 */
+	.NC00010 .QuickAreaComm .QuickArea_Link .Tel{display:none;}
+	.NC00010 .QuickArea_Link li{padding:6px 0px;}
+	.NC00010 .Banner20{}
+	.NC00010 .Banner20 a i{display:none;}
+	.NC00010 .Banner20 a img{display:block; }
+	.NC00030.QuickArea{} /* 네트워크4 */
+	.NC00030 .Banner20 a i{display:none;}
+	.NC00030 .Banner20 a img{display:block;}
+	.NC00037 .QuickArea_Link {border-top:5px solid #ff5e90; border-bottom:5px solid #ff5e90; box-shadow: -6px 5px 9px rgba(0,0,0,0.2);}
+	.NC00037 .QuickArea a{color:#000;}
+	.NC00037 .QuickArea a:hover{color:#ff5e90;}
+	.NC00037 .QuickArea_Btn a{box-shadow: -6px 5px 9px rgba(0,0,0,0.2); border-top:5px solid #ff5e90; border-radius:0; background-color:#fff;}
+	.NC00037 .QuickArea_Btn a p{color:#000; color:#ff5e90;}
+	.NC00037 .QuickArea_Link ul{border-radius:0; background-color:#fff;}
+	.NC00037 .QuickArea_Link li{border:0;}
+	.NC00078 .QuickArea section{display:table; position:fixed; top:90px; right:0; z-index:9999;}
+
+
+
+
+/* 퀵메뉴2 */
+.QuickAreaLeft{}
+.QuickAreaLeftComm{} /* 통합 */
+.QuickAreaLeftBranch{} /* 지점 */
+
+
+
+/* 탑으로이동
+.Quick_GoTop{}
+.Quick_GoTop{position:fixed; bottom:13%; right:0px; width:12%; z-index:9999; display:none;}
+.Quick_GoTop *{color:#fff;}
+.Quick_GoTop p{display:inline-block; width:3.8em; height:3.8em; text-align:center; background-color:#121212; border-radius:50%; padding:8px; overflow:hidden;}
+.Quick_GoTop p i{font-size:14pt;}
+.Quick_GoTop p span{display:block; font-size:12pt; font-weight:bold;;}
+.Quick_GoTop p img{width:100%;}
+ */
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 지점정보 */
+.BranchrNetwork{}
+.BranchrNetwork .Inner{display:block; padding:5em 0px 3em 0px;;}
+.BranchrNetwork .Inner > .Title{display:block; position:relative; text-align:center; margin-bottom:3em;}
+.BranchrNetwork .Inner > .Title strong{display:block; color:#dbdbdb; font-size:24pt;}
+.BranchrNetwork .Inner > .Title p{display:block; color:#373737; font-size:24pt; font-weight:bold; margin-top:0.5em;}
+.BranchrNetwork .Inner > section{display:table; position:relative; width:100%; table-layout:fixed;}
+	/* ---------------------- */
+	/* 지점목록영역 */
+	.Footer_BranchList{display:table-cell; position:relative; width:40%; vertical-align:top;}
+	.Footer_BranchList .BranchList1{}
+	/* ---------------------- */
+	/* 지점정보영역 */
+	.Footer_BranchInfo{display:table-cell; position:relative; vertical-align:top; text-align:left; background-color:#fafafa; padding:2em;}
+		/* 지점상세요약정보 */
+		.Footer_BranchInfoBox{position:relative; color: #373737;}
+		.Footer_BranchInfoBox > section{display:table; position:relative; width:100%; table-layout:fixed;}
+			/* 기본정보 */
+			.Footer_BranchInfoSummary{display:table-cell; position:relative; width:55%; vertical-align:top;}
+			.Footer_BranchInfoBox .Name{display:block; font-size:23pt; font-weight:normal;}
+			.Footer_BranchInfoBox .Name em{font-weight:bold;}
+			.Footer_BranchInfoBox .Add{display:block; margin-top:0.5em;}
+			.Footer_BranchInfoBox .Call{display:block; font-size:30pt; font-family:'Roboto',sans-serif; margin-top:0.5em;}
+			.Footer_BranchInfoBox .Time{display:block; width:100%; letter-spacing:-1px; margin-top:1em;}
+			.Footer_BranchInfoBox .Time pre{font-size:11pt;}
+			.Footer_BranchInfoBox .Time div{display:table; width:100%;}
+			.Footer_BranchInfoBox .Time pre.Left{display:table-cell; width:40%;}
+			.Footer_BranchInfoBox .Time pre.Right{display:table-cell;}
+			.Footer_BranchInfoBox .Card{display:block;}
+			.Footer_BranchInfoBox .Card pre{font-size:11pt;}
+			.Footer_BranchInfoBox .Parking{display:block; margin-top:1em;}
+			.Footer_BranchInfoBox .Parking pre{font-size:11pt;}
+			.Footer_BranchInfoBox .Link{display:table; position:relative; width:100%; table-layout:fixed; margin-top:2em;}
+			.Footer_BranchInfoBox .Link li{display:table-cell; position:relative; width:25%; line-height:4em; vertical-align:middle; text-align:center;}
+			.Footer_BranchInfoBox .Link a{display:block; position:relative; width:95%; color:#fff; background-color:#373737; border: 1px solid #373737;}
+			/* 지도 */
+			.Footer_BranchInfoMap{display:table-cell; position:relative; vertical-align:top;}
+			.Footer_BranchInfoMap #map{display:block; position:relative; width:100%; height:24em !important; border: 1px solid #dbdbdb;}
+
+
+	/* 구분 */
+	.NC00001 .BranchrNetwork{} /* 네트워크1 */
+	.NC00001 .BranchrNetwork .Inner > section{} 
+	.NC00005 .BranchrNetwork{} /* 네트워크2 */
+	.NC00005 .BranchrNetwork .Inner > section{} 
+	.NC00010 .BranchrNetwork{} /* 네트워크3  */
+	.NC00010 .BranchrNetwork .Inner > section{} 
+	.NC00010 .Footer_BranchInfo{background-color:#f4f2ec;}
+	.NC00010 .Footer_BranchInfoBox .Call{color:#78bc27; }
+	.NC00010 .Footer_BranchInfoBox .Link li:last-child a{border-color:#78bc27; background-color:#78bc27;}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */

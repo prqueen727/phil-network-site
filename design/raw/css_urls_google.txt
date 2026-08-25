@@ -1,0 +1,12 @@
+https://fonts.googleapis.com
+https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap
+https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap
+https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap
+https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap
+https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap
+https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100;300;400;500;700;900&display=swap
+https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap
+https://fonts.googleapis.com/css2?family=Marcellus&display=swap
+https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap
+https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap
+https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat&family=Poppins&display=swap

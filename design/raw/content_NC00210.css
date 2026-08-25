@@ -1,0 +1,919 @@
+@charset "utf-8";
+@import url(common.css);
+@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap');
+
+/* C00210
+365매일한방병원 */
+
+
+/* ===================================================================================================================================================== */
+/* 기본폼 */
+.reserveTable .SelectBranch{line-height:1;}
+.reserveTable .SelectBranch label *{vertical-align:middle;}
+.reserveTable .SelectBranch label{margin-bottom:0; margin-top:0; line-height:1;}
+
+/* ===================================================================================================================================================== */
+/* 시술페이지 소메뉴2 간격 */
+.spinalWrap .SubNav_Small1 + .SubNav_Small2 ul{width:70%; margin:0 auto;}
+
+/* ===================================================================================================================================================== */
+/* 시술페이지 */
+#contents *{line-height:normal; letter-spacing:-0.05em;}
+#contents{}
+#contents section{}
+
+/* 미디어 게시판 */
+.mediaWrap #contents{padding-top:3em;}
+.mediaWrap .boardThumList a .Thumb{height:270px;}
+
+/* ===================================================================================================================================================== */
+/* 서브페이지 타이틀 */
+.TopVisual{position:relative; display:table; width:100%; height:450px; overflow:hidden; background-size:cover; background-repeat:no-repeat; background-position:center top;}
+.TopVisual .TopText{position:relative; display:table-cell; vertical-align:middle; text-align:center; }
+.TopVisual .TopText i{position:relative; display:inline-block; margin-bottom:0.8em;}
+.TopVisual .TopText h1{position:relative; display:block; font-weight:600; font-size:50px; color:#fff; font-family: 'Noto Serif KR', serif; line-height:1.3;}
+.TopVisual .TopText h1 > b.light_green{color:#aad0c6; font-family: 'Noto Serif KR', serif; font-weight:600;}
+
+/* ===================================================================================================================================================== */
+/* 서브페이지 질환 키비주얼 */
+.KeyVisual{position:relative; display:block; width:100%; height:450px; overflow:hidden; background-size:cover; background-repeat:no-repeat; background-position:center;}
+.KeyVisual .TopText{position:relative; display:block; vertical-align:middle; text-align:left; width:1300px; margin:0 auto; padding-top:7em;}
+.KeyVisual .TopText small{position:relative; display:inline-block; font-size:13px; font-weight:1.2em; color:#507f70; opacity:0.7; letter-spacing:0.2em !important; font-family: 'Noto Serif KR', serif;}
+.KeyVisual .TopText h2{position:relative; display:block; font-weight:600 !important; font-size:50px; color:#333; font-family: 'Noto Serif KR', serif; margin:25px 0 40px;}
+.KeyVisual .TopText p{position:relative; display:block; font-size:22px; color:#333;}
+
+.365ClinicArea{position:relative;}
+.365ClinicArea section{position:relative;}
+.365ClinicArea .sectionCont{position:relative;}
+.365ClinicArea .tabsCont{position:relative;}
+.365ClinicArea .tabsCont > div{position:relative;}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------- */
+/* [공통사용] 탭기본 */
+.365ClinicArea .TabsClear{display:block; position:relative;}
+.365ClinicArea .tabsHead{display:block; position:relative;}
+.365ClinicArea .tabsHead .Menu{display:flex; position:relative; flex-direction:row; align-items:stretch; text-align:center; background:none; width:70%;}
+.365ClinicArea .tabsHead .Menu li{display:block; position:relative; flex-grow:1; flex-shrink:1;}
+.365ClinicArea .tabsHead .Menu li + li{}
+.365ClinicArea .TabsClear.tabsHead .Menu a{padding:1em;}
+.365ClinicArea .tabsHead .Menu a{display:block; position:relative;}
+.365ClinicArea .tabsHead .Menu a p{display:block; position:relative;}
+.365ClinicArea .tabsHead .Menu .ui-state-active{}
+.365ClinicArea .tabsHead .Menu .ui-state-active a{color:#fff; font-weight:bold; background-color:#2a2a2a;}
+.365ClinicArea .tabsCont{display:block; position:relative;}
+
+/* [공통사용] 탭타입1 시술페이지 */
+.TabsClear{}
+.tabsHead{}
+.tabsHead .Inner{margin:20px auto; text-align:center;}
+.tabsHead .Menu{display:inline-flex; width:70% !important; margin:0 auto !important;}
+.tabsHead .Menu li{padding:0em 1em !important; border: 1px solid #3c3c3c; border-radius:50px; margin-right:10px; width:320px;}
+.tabsHead .Menu li + li{border: 1px solid #3c3c3c; border-radius:50px; margin-right:10px;}
+.tabsHead .Menu li:last-child{margin-right:0;}
+.tabsHead .Menu li + li:after{content:""; display:block; position:absolute; left:0%; top:0%; bottom:0%; /* border-left:1px solid #aaa; */}
+.TabsClear.tabsHead .Menu a{color:#000;}
+.tabsHead .Menu a{font-size:1.6em; background:#f4f4f4; padding:0.5em 0.8em !important; border-bottom-width:3px; border-bottom-style:solid; border-bottom-color:transparent; /* width:210px; height:60px; line-height:16px; */ font-size:18px; border-radius:50px; width:320px;}
+.tabsHead .Menu a p{}
+.tabsHead .Menu a p:after{content:""; display:block; position:absolute; left:0%; right:0%; bottom:0%;}
+.tabsHead .Menu .ui-state-active{}
+.tabsHead .Menu .ui-state-active a{color:#fff; background-color:#507f70; border-radius:50px;}
+.tabsHead .Menu .ui-state-active a p{color:#fff;}
+.tabsHead .Menu .ui-state-active img{}
+ .tabsCont{}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------------------------------------------------- */
+/* 병원소개 > 병원소개 */
+.aboutSection07{position:relative;}
+.aboutSection07 a{position:absolute; bottom:100px; left:50%; transform: translate(-50%, -50%); background-color:#3c6c5d; color:#fff; font-size:24px; display:inline-block; width:300px; height:60px; text-align:center; border-radius:50px; line-height:58px !important;}
+.aboutSection07 a span{font-family:'SUIT'; font-size:24px; color:#fff; font-weight:600; margin-left:10px;}
+
+.C00304 .aboutSection08{display:none !important;} /* 20250905강북수유점_삭제요청 */
+.aboutSection08{position:relative; background-color:#fff;; padding:100px 0 65px;}
+.aboutSection08::before{position:absolute; content:""; width:100%; height:94%; bottom:-10em; left:50%; transform: translate(-50%, 0); background-color:#507f70; opacity:0.1; border-radius:100% 100% 0 0;}
+.aboutSection08 .Inner{overflow:hidden;}
+	/* 기본 */
+	.aboutSection08 .Banner03{}
+	.aboutSection08 .Banner03 ul{position:relative; display:table; width:95%; margin:0 auto;}
+	.aboutSection08 .Banner03 ul li{position:relative; display:inline-table; width:33.33%; vertical-align:middle; text-align:center; border-right:1px solid #ddd;}
+	.aboutSection08 .Banner03 ul li:last-child{border-right:none;}
+	.aboutSection08 .Banner03 .ThumBox{position:relative; display:inline-table; width:240px; height:240px; border-radius:200px; background-color:#f7f7f7; vertical-align:middle; margin-bottom:3em; box-shadow:3px 3px 13px rgba(0,0,0,0.05); border:1px solid #ddd;}
+	.aboutSection08 .Banner03 .ThumBox span{position:relative; display:table-cell; margin:0 auto; vertical-align:middle;}
+	.aboutSection08 .Banner03 .ThumBox span img{position:relative; display:table-cell; margin:0 auto; vertical-align:middle;}
+	.aboutSection08 .Banner03 .TextBox{position:relative; display:block; width:100%; line-height:1;}
+	.aboutSection08 .Banner03 .TextBox b{position:relative; display:block; width:65%; margin:0 auto; background-color:#507F70; font-size:24px; color:#fff; font-weight:500; padding:0.4em; border-radius:100px; margin-bottom:0.7em; font-family: 'Noto Serif KR', serif;}
+	.aboutSection08 .Banner03 .TextBox em{position:relative; display:block; width:100%; font-weight:600; color:#285c4d; font-size:40px; margin-bottom:0.3em;}
+	.aboutSection08 .Banner03 .TextBox em > strong{font-weight:600;}
+
+.aboutSection08 .txtBox{position:relative; width:100%; text-align:center; margin-top:3em;}
+.aboutSection08 .txtBox h1{width:60%; font-size:24px; color:#285C4D; background-color:#fff; border-radius:100px; font-weight:400; margin:0 auto; padding:0.5em 0;}
+.aboutSection08 .txtBox h1 > b{font-weight:500;}
+
+/* 둘러보기 */
+.About_GalleryArea{position:relative; background-color:#f4f4f4; padding:120px 0; overflow:hidden;}
+.About_GalleryArea::before{position:absolute; background-color:#fff; width:100%; height:50%; top:0; left:0; content:""; border-radius:0 0 110% 110%;}
+.About_GalleryArea .MultiImgSliderArea{padding:0; padding-top:0;}
+.About_GalleryArea .MultiImgSliderArea .Inner{background-color:transparent !important;}
+.About_GalleryArea .MultiImgSliderArea .slick-button{position:absolute; top:43%; width:100%; left:0; z-index:1;}
+.About_GalleryArea .MultiImgSliderArea .slick-button .slick-button-prev01{position:absolute; left:-6%; width:45px; height:45px; font-size:15pt; background-color:#f4f4f4; border-radius:100px; color:#507F70; border:1px solid #507F70;}
+.About_GalleryArea .MultiImgSliderArea .slick-button .slick-button-next01{position:absolute; right:-6%; width:45px; height:45px; font-size:15pt; background-color:#f4f4f4; border-radius:100px; color:#507F70; border:1px solid #507F70;}
+.About_GalleryArea .MultiImgSliderArea .MultiImgSlider.slider-for .slick-slide li .ThumBox{background:none !important}
+.About_GalleryArea .MultiImgSlider.slider-nav .slick-slide{height:5em !important;}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------- */
+/* 병원소개 > 의료진소개 */
+.About_DoctorArea .section_start{background-color:#fff; background-image:none;}
+.About_DoctorArea > .Inner{width:100%; padding:0;}
+	.boardThumList2{} /* 네트워크Fn */
+	.boardThumList2 .List{border:none; overflow:hidden;} /* 네트워크Fn */
+	.boardThumList2 .List ul{width:100%;}
+	.boardThumList2 .List li{position:relative; margin:0; /* padding:4em 0; */ position:relative; width:100%; border:none;}
+	.boardThumList2 .List li::before{position:absolute; content:""; width:564px; height:549px; background-image:url("/clinicInfo365maeil/img/logo_back_white.png");bottom:-70px; right:-100px; opacity:0.7;}
+	.boardThumList2 .List li{background:#f9f9f9; padding:70px 0;}
+	.boardThumList2 .List li:nth-child(2n){background-color:#f0f0f0;}
+	/* .boardThumList2 .List li:nth-child(2n){background-color:#f9f9f9;} */
+	.boardThumList2 .List li .ThumBg{position:absolute; right:30px; bottom:-60px;}
+	.boardThumList2 .List li:nth-child(2n) .ThumBg img{opacity:.5;}
+	/* .boardThumList2 .List li:nth-child(2n) .Text:before{background-color:#f2f2f2;} */
+	.boardThumList2 .List li label{min-width:1300px; width:1300px;}
+
+	.boardThumList2 .List li .Inner{padding:0 50px;}
+
+	.boardThumList2 .ViewThum{border:none;}
+	.boardThumList2 .ViewThum dl{padding:0; background:none;}
+	.boardThumList2 .ViewThum dt{display:table-cell; z-index:1; width:44%; vertical-align:bottom;}
+	.boardThumList2 .ViewThum dt .Thumb{display:block; overflow:hidden; width:100%; height:33em; margin-left:25px; border:1px solid #507F70;}
+	.boardThumList2 .List li:first-child .ViewThum dt .Thumb{margin-top:60px;}
+	.boardThumList2 .ViewThum dt .Thumb img{width:100%;}
+	.boardThumList2 .ViewThum dd{position:relative; display:table-cell; width:728px; padding-top:65px; padding-left:90px; vertical-align:middle;}
+	.boardThumList2 .ViewThum dd .Title{display:none;}
+	.boardThumList2 .ViewThum .CommonText{transform: rotate(-90deg); position:absolute; bottom:110px; left:-103%; letter-spacing:5px; font-size:10px; color:#507f70; height:25px; font-family: 'Noto Serif KR', serif; font-weight:400; opacity:0.7; letter-spacing:0.3em !important;}
+	.boardThumList2 .ViewThum .CommonText b{}
+	.boardThumList2 .ViewThum .Text{display:table; width:100%; /* background-color:#f4f4f4; */position:relative;}
+	.boardThumList2 .ViewThum .Text *{font-size:17px !important;}
+/* 	.boardThumList2 .ViewThum .Text:before{content:''; display:block; position:absolute; width:1000%; height:100%; top:0; left:auto; right:0; background: #f6f6f6; z-index:0;} */
+	.boardThumList2 .ViewThum .Welcome{display:inline-block; width:49.99%; vertical-align:top; /* padding:3em 5px 3em 0; */ color:#666666; font-size:12pt; display:none;}
+	.boardThumList2 .ViewThum .Welcome p{}
+	.boardThumList2 .ViewThum .Welcome p:before{content:""; clear:both; display:inline-block; position:relative; left:0; bottom:4px; width:5px; height:5px; background-color:#ddd; border-radius:5px; margin-right:7px;}
+	.boardThumList2 .ViewThum .Welcome strong{font-weight:600; color:#cd9892; padding-bottom:7px; display:inline-block;}
+	.boardThumList2 .ViewThum .Career{vertical-align:top; padding:3em 5px 1em 0 ; color:#666666; }
+	.boardThumList2 .ViewThum .Career p{position:relative; display:table;}
+	.boardThumList2 .ViewThum .Career p span{position:relative; display:inline-table; width:3px; height:3px; border-radius:100px; background-color:#999; margin:10px 7px 0 0; vertical-align:top; text-align:left;}
+	.boardThumList2 .ViewThum .Career p em{position:relative; display:table-cell; vertical-align:top; color:#333;}
+	.boardThumList2 .ViewThum .Name{position:relative; letter-spacing:0; font-size:18pt; line-height:1.5em; padding:0; margin-bottom:1.3em; color:#222; font-weight:400;  z-index:1;}
+	.boardThumList2 .ViewThum .Name::before{position:absolute; content:""; width:100%; height:1px; background-color:#507F70; top:90px; left:-65px;}
+
+	.boardThumList2 .ViewThum .Name strong{font-size:29pt; font-weight:600; color:#333333; font-family: 'Noto Serif KR', serif;}
+	.boardThumList2 .ViewThum .Name span{font-size:20px; font-weight:500; color:#507F70; padding-left:10px;}
+	.boardThumList2 .ViewThum .CorpTitle{position:relative; display:block; text-align:left; font-size:13pt; width:7%; margin-bottom:1em; z-index:1;}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* 병원소개 > 오시는길 */
+.aboutMapArea{}
+.About_NetworkAea{}
+	/* 네트워크(통합) */
+	/* 지점목록 */
+	.About_NetworkAea_BranchBox section.Left{}
+	/* 지점분포지도 */
+	.About_NetworkAea_BranchBox section.Right{}
+	.About_NetworkAea_BranchBox section.Right img{}
+		
+	/* 지점별소개(지점) */
+	.About_NetworkAea_Detail{background-color:#fff; padding:120px 0 20px;}
+	.NC00210.C00210 .About_NetworkAea_Detail.C00212{padding:120px 0 20px;}
+	.About_NetworkAea_Detail.C00211{padding:120px 0 20px;}
+	.About_NetworkAea_Detail.C00212{background-color:#f8f8f8;}
+	.About_NetworkAea_Detail >.Inner{overflow:hidden; padding:0;}
+	.About_NetworkAea_Detail >.Inner > .smallTitle{width:90%; margin:0 auto 30px; text-align:center;}
+	.About_NetworkAea_Detail >.Inner > .smallTitle small{font-size:11px; letter-spacing:0.3em !important; color:#507F70; opacity:0.7; font-weight:400; font-family: 'Noto Serif KR', serif;}
+	.About_NetworkAea_Detail >.Inner > .Title{line-height:1; font-size:30pt; color:#507F70; width:90%; margin:0 auto 70px; text-align:center; font-weight:600; font-family: 'Noto Serif KR', serif;}
+	.About_NetworkAea_Detail >.Inner > .Title strong{color:#507F70; font-weight:600; font-family: 'Noto Serif KR', serif;}
+	.About_NetworkAea_Detail >.Inner > .Title span{color:#333; }
+		.NetworkAea_DetailSection1{width:85%; margin:0 auto 6em;}
+			.NetworkAea_DetailSection1 .Title{font-size:25pt; color:#507F70; font-weight:500; padding-bottom:0.7em; margin-bottom:1.1em; border-bottom:1px solid #ddd; line-height:normal;}
+			.NetworkAea_DetailSection1 .Title i{}
+			.NetworkAea_DetailSection1_Left{display:block; width:100%; padding-right:0;}
+				/* 오시는길 */
+				.NetworkAea_DetailSection1_Left .Add{margin:0; font-size:20px; font-weight:500; width:65%; margin:0 auto 2em; text-align:center; background-color:#507F70; padding:0.8em 0; border-radius:100px; color:#fff;}
+			.NetworkAea_DetailSection1_Center{display:table-cell; width:46%; padding-right:3em;}
+				.NetworkAea_DetailSection1_Center .Title{margin-bottom:0.9em;}
+				/* 진료시간 */
+				.NetworkAea_DetailSection1_Center .Time{display:block; width:100%; }
+				.NetworkAea_DetailSection1_Center .Time h3{display:block; width:440px; margin-bottom:1em; padding:0.5em 0.3em; background-color:#507F70; color:#fff; font-size:24px; font-weight:500; text-align:center;}
+				.NetworkAea_DetailSection1_Center .Time > div{display:table; width:100%; }
+				.NetworkAea_DetailSection1_Center .Time > div pre{white-space:pre-line;}
+				.NetworkAea_DetailSection1_Center .Time > div pre.Left{display:table-cell; width:41%; font-size:16pt; font-weight:normal; line-height:1.6 !important;}
+				.NetworkAea_DetailSection1_Center .Time > div pre.Right{display:table-cell; font-size:16pt; font-weight:400; opacity:.6; line-height:1.6 !important;}
+			.NetworkAea_DetailSection1_Right{display:table-cell; width:33%; vertical-align:top; padding:0; padding-right:3em; }
+				.NetworkAea_DetailSection1_Right .Call{font-size:33pt; color:#507F70; font-weight:600; font-family: 'SUIT', sans-serif;}
+		.NetworkAea_DetailSection2{}
+		.NetworkAea_DetailSection3{}
+			.NetworkAea_DetailSection3_RIght #aboutmap{height:500px;}
+			.NetworkAea_DetailSection3_RIght .mapBox{height:500px; border:1px solid #507F70;}
+
+	/* 교통정보 */
+	.NetworkAea_DetailSection2{position:relative; display:block;}
+		.NetworkAea_DetailSection2{margin-top:1em;}
+		.NetworkAea_DetailSection2 > section{width:33%; display:inline-table; vertical-align:top;}
+			.NetworkAea_DetailSection2 .Title{font-size:23pt; color:#507F70; font-weight:500; padding-bottom:0.7em; margin-bottom:1.1em; border-bottom:1px solid #ddd; line-height:normal;}
+			.NetworkAea_DetailSection2 .Title i{}
+			.NetworkAea_DetailSection2_Left{display:table-cell; width:33%; padding-right:3em;}
+				/* 자가용 */
+				.NetworkAea_DetailSection2_Left .car{margin:0; font-size:20px;}
+				.NetworkAea_DetailSection2_Left .car p{font-size:20px; color:#333;}
+				.NetworkAea_DetailSection2_Left .car p > b{font-weight:600;}
+				/* 지하철 */
+				.NetworkAea_DetailSection2_Center{display:table-cell; width:33%; padding-right:3em;}
+				.NetworkAea_DetailSection2_Center .Title{margin-bottom:0.9em;}
+				.NetworkAea_DetailSection2_Center .Title p{display:inline; font-size:23pt; color:#507F70; font-weight:500; padding-right:5px;}
+				.NetworkAea_DetailSection2_Center .Title span{font-size:18px; color:#fff; font-weight:500; text-align:center; display:inline; margin-right:8px; vertical-align:middle; padding:2px 10px; border-radius:50px;}
+				.NetworkAea_DetailSection2_Center .Title .subway_1{background-color:#303888;}
+				.NetworkAea_DetailSection2_Center .Title .subway_2{background-color:#0fbe5c;}
+				.NetworkAea_DetailSection2_Center .Title .subway_4{background-color:#02a4e1;}
+				.NetworkAea_DetailSection2_Center .Title .subway_new{background-color:#d2d617;}
+				.NetworkAea_DetailSection2_Center .Title .subway_suin{background-color:#e7c136;}
+				.NetworkAea_DetailSection2_Center .Title span:last-child{margin-right:0;}
+
+				.NetworkAea_DetailSection2_Center .subway{display:table; width:100%; }
+				.NetworkAea_DetailSection2_Center .subway > p{font-size:20px; color:#333;}
+				.NetworkAea_DetailSection2_Center .subway > p > b{font-weight:600;}
+				/* 버스 */
+				.NetworkAea_DetailSection2_Right .bus{}
+				.NetworkAea_DetailSection2_Right .bus p{font-size:20px; color:#333;}
+				.NetworkAea_DetailSection2_Right .bus p > b{font-weight:600;}
+				.NetworkAea_DetailSection2_Right .bus > div{display:table; overflow:hidden; margin-top:20px; width:100%;}
+				.NetworkAea_DetailSection2_Right .bus > div > div{margin-bottom:12px;}
+				.NetworkAea_DetailSection2_Right .bus .Left{display:table-cell; width:15%; font-size:18px; font-weight:normal; vertical-align:top;}
+				.NetworkAea_DetailSection2_Right .bus .Left p{font-weight:500; display:block;}
+				.NetworkAea_DetailSection2_Right .bus .Left p:nth-child(1){color:#3fb6be;} /* 일반  */
+				.NetworkAea_DetailSection2_Right .bus .Left p:nth-child(2){color:#90bb30;} /* 마을  */
+				.NetworkAea_DetailSection2_Right .bus .Left p:nth-child(3){color:#e91c1c;} /* 간선  */
+				.NetworkAea_DetailSection2_Right .bus .Left p:nth-child(4){color:#293888;} /* 일반  */
+				.NetworkAea_DetailSection2_Right .bus .Right{display:table-cell; font-size:18px; font-weight:400; vertical-align:top;}
+				/*분당성남점*/
+				.C00226 .NetworkAea_DetailSection2_Right .bus .Left p:nth-child(2){margin-top:30px;}
+				/* 강북수유점 */
+				.C00304 .NetworkAea_DetailSection2_Right .bus .Left p:nth-child(1){color:#8aca35;} /* 마을  */
+				.C00304 .NetworkAea_DetailSection2_Right .bus .Left p:nth-child(2){color:#0c79bc;} /* 간선  */
+				.C00304 .NetworkAea_DetailSection2_Right .bus .Left p:nth-child(3){color:#55ab24;} /* 지선  */
+				.C00304 .NetworkAea_DetailSection2_Right .bus .Left p:nth-child(4){color:#12a89d;} /* 일반  */
+				.C00304 .NetworkAea_DetailSection2_Right .bus .Left p:nth-child(5){color:#f14f36;} /* 직행  */
+				.C00304 .NetworkAea_DetailSection2_Right .bus .Left p:nth-child(6){color:#76b5e0;} /* 공항  */
+
+	/* 지도 링크 */
+	.NetworkAea_DetailSection4{width:100%; padding:0;}
+	.NetworkAea_DetailSection4 ul{width:100%; display:table; overflow:hidden; border-spacing:60px;}
+	.NetworkAea_DetailSection4 ul li{display:table-cell; vertical-align:middle; width:50%; border-radius:100px; text-align:center; padding:12px 0;}
+	.NetworkAea_DetailSection4 ul li a{display:block; width:100%;}
+	.NetworkAea_DetailSection4 ul li a i{display:inline; vertical-align:top;}
+	.NetworkAea_DetailSection4 ul li a p{display:inline-block; padding-left:10px; font-size:28px; font-weight:500; color:#111;}
+	.NetworkAea_DetailSection4 ul li:nth-child(1){background-color:#03cf5d; transition:0.3s;}
+	.NetworkAea_DetailSection4 ul li:nth-child(2){background-color:#fce100; transition:0.3s;}
+	.NetworkAea_DetailSection4 ul li:nth-child(1):hover{background-color:#0bbd59; transition:0.3s;}
+	.NetworkAea_DetailSection4 ul li:nth-child(2):hover{background-color:#f3cc0a; transition:0.3s;}
+	.NetworkAea_DetailSection4 ul li:nth-child(1) a p{color:#fff;}
+
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------------------------------------------------- */
+/* 시술페이지 */
+
+/* 시술 타이틀 공통 */ 
+.subTitle{display:block; margin-bottom:60px; padding:0;}
+.subTitle small{display:inline-block; font-size:13px; letter-spacing:0.2em !important; color:#507f70; opacity:0.7; font-family: 'Noto Serif KR', serif;}
+.subTitle h1{font-weight:600; font-size:40px; color:#333; font-family: 'Noto Serif KR', serif; margin:25px 0 35px;}
+.subTitle h1 > b{color:#507f70; font-weight:600; font-family: 'Noto Serif KR', serif;}
+.subTitle p{font-size:20px; color:#333;}
+
+.subTitle.dark small{color:#aad0c6; opacity:1;}
+.subTitle.dark h1{color:#fff;}
+.subTitle.dark p{color:#fff;}
+
+.subTitle.beige small{color:#d6c09d; opacity:1;}
+.subTitle.beige h1 > b{color:#8e7a5a;}
+
+/* 시술 > 정의 */
+.section_define{position:relative; display:table; width:100%; padding:100px 0; overflow:hidden;}
+.section_define::before{position:absolute; content:""; width:303px; height:294px; bottom:-5em; right:0; background-image:url("/clinicInfo365maeil/img/logo_back_gray.png"); background-repeat:no-repeat; background-size:cover; background-position:center;}
+.section_define .Inner{padding:0 50px;}
+.section_define .Inner > div{display:table-cell; vertical-align:middle;}
+.section_define .Inner .imgBox{width:40%; border-radius:30px; overflow:hidden;}
+.section_define .Inner .txtBox{width:60%; text-align:left; padding-left:70px; padding-right:30px; margin-bottom:0;}
+
+/* 시술 > 원인 */
+.section_circle{position:relative; padding:100px 0; overflow:hidden; background-color:#f6f6f6;}
+.section_circle::before{position:absolute; content:""; width:120%; height:77%; bottom:-182px; left:50%; transform: translate(-50%, 0); background-color:#fff; opacity:0.7; border-radius:150% 150% 0 0;}
+.section_circle ul{width:1200px; margin:0 auto 20px; overflow:hidden; text-align:center; padding-bottom:20px;}
+.section_circle ul:last-child{margin:0 auto;}
+.section_circle ul li{display:table; float:left; width:270px; height:270px; border:1px solid #285c4d; border-radius:300px; box-shadow:3px 3px 15px rgba(0,0,0,0.05); margin-right:40px; padding:0 30px; background-color:#fff;}
+.section_circle ul li:nth-child(2n){border:1px solid #aad0c6;}
+.section_circle ul li:last-child{margin-right:0;}
+.section_circle ul li h2{display:table-cell; vertical-align:middle; font-weight:500;}
+.section_circle .txtBox h3{font-size:26px; font-weight:500; color:#333; margin-top:40px;}
+	/* 시술 > 원인_대상포진 */
+	.shinglesWrap .section_circle{background-color:#fff;}
+	.shinglesWrap .section_circle::before{background-color:#f6f6f6;}
+	.shinglesWrap .section_circle ul{width:890px;}
+/*중풍후유증/안면마비*/
+.section_circle_three ul{width:69%;}
+/*검사안내*/
+.checkupWrap .section_circle::before{display:none;}
+
+/* 시술 > 효과 */
+.section_circle2{background-color:#fff;}
+.section_circle2::before{position:absolute; content:""; width:100%; height:94%; bottom:-23em; left:50%; transform: translate(-50%, 0); background-color:#d6c09d; opacity:0.12; border-radius:100% 100% 0 0;}
+.section_circle2 ul{width:1100px; margin:0 auto; padding-bottom:2em;}
+.section_circle2 ul li{width:350px; height:350px; border:1px solid #efe6d7; background-color:rgba(255,255,255,0.95); border-radius:100%; margin-right:25px; box-shadow:0px 8px 10px rgba(0,0,0,0.05); text-align:center;}
+.section_circle2 ul li:nth-child(2n){background-color:rgba(248,248,248,0.95);}
+.section_circle2 ul li:last-child{margin-right:0;}
+.section_circle2 ul li > div{display:table-cell; vertical-align:middle;}
+.section_circle2 ul li h2{display:block; width:85px; padding:5px 25px; background-color:#507F70; border-radius:50px; color:#fff; font-weight:600; font-size:26px; margin:0 auto 20px;}
+.section_circle2 ul li p{display:block; font-size:28px; color:#333; font-weight:500;}
+.section_circle3 ul:nth-child(2) li:nth-child(1){background-color:rgba(248,248,248,0.95);}
+.section_circle3 ul:nth-child(2) li:nth-child(2){background-color:rgba(255,255,255,0.95);}
+.section_circle3 ul:nth-child(2) li:nth-child(3){background-color:rgba(248,248,248,0.95);}
+
+	/* 시술 > 효과_대상포진 */
+	.shinglesWrap .section_circle2{background-repeat:no-repeat; background-size:cover; background-position:center;}
+	.shinglesWrap .section_circle2 .subTitle h1 span{color:#285c4d; font-family: 'Noto Serif KR', sans-serif; font-weight: 600;}
+	.shinglesWrap .section_circle2 ul{width:1300px;}
+	.shinglesWrap .section_circle2 ul li{width:300px; height:300px;}
+
+/* 시술 > 증상 체크리스트 */
+.section_check{position:relative; padding:100px 0; overflow:hidden; background-color:#20453c;}
+.section_check::after{content:''; position:absolute; width:1068px; height:1068px; top:-38em; left:-29em; background-image:url('/img/C00210/mainSection05_circle01.png'); background-repeat:no-repeat; background-size:cover; background-position:center; opacity:0.3;}
+.section_check::before{content:''; position:absolute; width:1552px; height:1552px; bottom:-61em; right:-56em; background-image:url('/img/C00210/mainSection05_circle02.png'); background-repeat:no-repeat; background-size:cover; background-position:center; opacity:0.3;}
+.section_check ul{width:62%; margin:0 auto 60px;}
+.section_check ul li{width:100%; border-radius:100px; background-color:#fff; text-align:left; margin-bottom:15px; padding:20px 20px 20px 25px;}
+.section_check ul li:last-child{margin-bottom:0;}
+.section_check ul li i{display:inline; vertical-align:middle;}
+.section_check ul li i img{width:2em;}
+.section_check ul li h2{display:inline-block; font-size:22px; color:#333; vertical-align:middle; padding-left:10px; font-weight:400;}
+.section_check .txtBox{}
+.section_check .txtBox p{font-size:26px; color:#fff; line-height:1.6 !important;}
+
+	/* 시술 > 증상 체크리스트_대상포진 */
+	.shinglesWrap .section_check ul{width:35%;}
+
+/*교통사고*/
+.section_check.attention{background-color:#b1b8b6;}
+.section_check.attention::after{opacity:0.4;}
+.section_check.attention::before{opacity:0.4;}
+.section_check.attention .subTitle small{color:#333; opacity:0.6;}
+.section_check.attention ul li{border:1px solid #e43012;}
+.section_check.attention ul li h2{width:90%; text-align:center; font-weight:500;}
+.section_check.attention .txtBox p{color:#333;}
+.section_check.attention .txtBox p > b{color:#e43012; font-weight:600;}
+/*다이어트*/
+.dietWrap .section_check ul{margin:0 auto;}
+
+/* 시술 > 감성문구 */
+.section_gray{position:relative; overflow:hidden; background-repeat:no-repeat; background-size:cover; background-position:center; padding:130px 0 100px;}
+.section_gray .txtBox{text-align:left; width:1100px; margin:0 auto;}
+.section_gray .txtBox h1{font-size:28px; font-weight:400; color:#333; line-height:1.2;}
+.section_gray .txtBox h1 > b{font-weight:600;}
+.section_gray .txtBox p{font-size:22px; color:#333; font-family: 'Noto Serif KR', serif; margin:70px 0 50px; font-weight:600;}
+.section_gray .txtBox small{font-size:13px; letter-spacing:0.2em !important; color:#aad0c6; font-family: 'Noto Serif KR', serif;}
+
+	/* 시술 > 감성문구_대상포진 */
+	.shinglesWrap .section_gray{padding:270px 0;}
+	.shinglesWrap .section_gray .txtBox h1{font-family: 'Noto Serif KR', serif; margin-bottom:30px; font-weight:600;}
+
+
+/*검사안내*/
+.checkupWrap .section_gray{padding:185px 0 90px;}
+.checkupWrap .section_gray .txtBox{text-align:center; width:1100px; margin:0 auto;}
+.checkupWrap .section_gray .txtBox h1{font-size:50px; font-weight:400; color:#fff; line-height:1.4 !important; font-family: 'Noto Serif KR', serif; margin:60px 0 80px;}
+.checkupWrap .section_gray .txtBox h1 > b{font-weight:600; color:#aad0c6; font-family: 'Noto Serif KR', serif;}
+
+/* 시술 > 공통하단 */
+.clinic365Common_Area{display:block; position:relative; overflow:hidden;}
+
+/* 시술 > 공통하단 > 치료방법 */
+.commonSection_cure{position:relative; overflow:hidden; padding:100px 0;}
+.commonSection_cure::before{position:absolute; content:""; width:120%; height:77%; top:-165px; left:50%; transform: translate(-50%, 0); background-color:#aad0c6; opacity:0.1; border-radius:150%;}
+.commonSection_cure .Inner{padding:0 100px; display:table;}
+.commonSection_cure .contBox{display:table-cell; vertical-align:middle;}
+.commonSection_cure .contBox01{width:25%;}
+.commonSection_cure .contBox02{width:50%;}
+.commonSection_cure .contBox03{width:25%;}
+.commonSection_cure .contBox ul{}
+.commonSection_cure .contBox ul li{width:90%; background-color:#fff; border:1px solid #285c4d; border-radius:100px; text-align:center; margin-bottom:60px; box-shadow:2px 2px 5px rgba(0,0,0,0.08);}
+.commonSection_cure .contBox ul li:last-child{margin-bottom:0;}
+.commonSection_cure .contBox01 ul li:nth-child(1){margin-left:30px;}
+.commonSection_cure .contBox01 ul li:nth-child(4){margin-left:30px;}
+.commonSection_cure .contBox03 ul li:nth-child(2){margin-left:30px;}
+.commonSection_cure .contBox03 ul li:nth-child(3){margin-left:30px;}
+.commonSection_cure .contBox ul li p{font-size:24px; color:#333; font-weight:500; padding:0.6em;}
+.commonSection_cure .contBox .titleBox{display:table; width:440px; height:440px; background-color:#f6f6f6; border:1px solid #507f70; border-radius:100%; box-shadow:3px 3px 10px rgba(0,0,0,0.08); margin:0 auto;}
+.commonSection_cure .contBox .titleBox > div{display:table-cell; vertical-align:middle; text-align:center;}
+.commonSection_cure .contBox .titleBox > div i{}
+.commonSection_cure .contBox .titleBox > div span{display:block; width:60px; height:4px; background-color:#507F70; opacity:0.7; margin:40px auto 30px;}
+.commonSection_cure .contBox .titleBox > div h1{font-size:23pt; font-weight:600; font-family: 'Noto Serif KR', serif;}
+
+/* 시술 > 공통하단 > 골든타임 */
+.commonSection_time{position:relative; overflow:hidden; background-repeat:no-repeat; background-size:cover; background-position:center top;}
+.commonSection_time .Inner{width:1100px; margin:0 auto; padding:150px 0; display:flex; justify-content:space-between;}
+.commonSection_time .contBox{display:flex; flex-direction:column; align-items:center; width:calc(100% / 2 - 20px);}
+.commonSection_time .TitleBox{display:flex; flex-direction:column; align-items:center; margin-bottom:40px;}
+.commonSection_time .TitleBox p{font-size:35px; font-family: 'Noto Serif KR', serif; color:#333; margin-top:30px; font-weight:500;}
+.commonSection_time .ImgBox{width:60px; height:60px; border-radius:50px; display:flex; justify-content:center; align-items:center;}
+.commonSection_time .contBox01 .ImgBox{background-color:#737373;}
+.commonSection_time .contBox02 .ImgBox{background-color:#285c4d;}
+
+.commonSection_time ul{width:100%; border-radius:35px; overflow:hidden; padding:25px;}
+.commonSection_time .contBox01 ul{background-color:#dcdcdc;}
+.commonSection_time .contBox02 ul{background-color:#c8e5d7;}
+
+.commonSection_time ul li{border-radius:25px; overflow:hidden; background-color:#fff; display:flex; flex-direction:column; justify-content:center; align-items center;}
+.commonSection_time .contBox01 li{padding:23px 0; margin:11px 0;}
+.commonSection_time .contBox02 li{padding:24px 0; margin:11.5px 0;}
+.commonSection_time ul li p{font-size:20px; color:#333; font-weight:500;}
+.commonSection_time .contBox02 li .Text01{font-size:24px; font-weight:600;}
+
+	/* 시술 > 공통하단 > 골든타임_대상포진 */
+	.shinglesWrap .commonSection_time .contBox01 li{padding:26.5px 0; margin:11px 0;}
+
+/* 시술 > 공통하단 > 프로그램 */
+.commonSection_program{position:relative; overflow:hidden; background-repeat:no-repeat; background-size:cover; background-position:center top;}
+.commonSection_program .Inner{width:1100px; margin:0 auto; padding:100px 0;}
+.commonSection_program .subTitle{margin-bottom:40px;}
+.commonSection_program h1 span{font-family: 'Noto Serif KR', serif; color:#faf0e1; font-weight:600;}
+.commonSection_program ul{display:flex; flex-wrap:wrap; justify-content:space-between;}
+.commonSection_program ul li{width:calc(100% /3 - 20px); border-radius:45px; overflow:hidden; background-color:#fff; padding:50px 35px; margin:20px 0;}
+.commonSection_program ul li .Text01{font-size:28px; color:#285c4d; font-weight:600; padding-bottom:30px; border-bottom:1px solid #285c4d;}
+.commonSection_program ul li .Text02{font-size:20px; color:#333; font-weight:500; padding-top:30px; line-height:1.7;}
+
+/* 시술 > 공통하단 > 프로그램_표 */
+.commonSection_graph{background-color:#f6f6f6;}
+.commonSection_graph .Inner{width:1200px; margin:0 auto; padding:100px 0;}
+.commonSection_graph .subTitle{margin-bottom:60px;}
+.commonSection_graph h1 span{font-family: 'Noto Serif KR', serif; color:#285c4d; font-weight:600;}
+
+.commonSection_graph .contBox{display:flex; justify-content:center; align-items:center;}
+.commonSection_graph .List{width:30%;}
+.commonSection_graph .List h2{border-top-left-radius:30px; border-top-right-radius:30px; color:#fff; padding:20px 60px 20px 20px; display:flex; justify-content:center; align-items:center; font-weight:500; font-size:28px;}
+.commonSection_graph .List.Left h2{background-color:#285c4d;}
+.commonSection_graph .List.Right h2{background-color:#583c29;}
+
+.commonSection_graph .Center p{width:20%; font-size:60px; font-weight:600; color:#333; margin:70px 50px 0;}
+.commonSection_graph .List h2 span{display:inline-block; width:35px; height:33px; margin-right:15px;}
+.commonSection_graph .List h2 span img{width:100%; height:100%; object-fit:cover;}
+
+.commonSection_graph ul{width:100%; background-color:#fff; border:1px solid #ddd; margin-top:10px;}
+.commonSection_graph ul li{width:85%; margin:0 auto; padding:30px 20px; border-bottom:1px solid #ddd; font-size:24px; color:#333; font-weight:400;}
+.commonSection_graph ul li:last-child{border-bottom:none;}
+
+/* 시술 > 공통하단 > 치료방법 > 별도-턱관절 */
+.commonSection_method{position:relative; overflow:hidden; padding:100px 0; background-color:rgba(214,192,157,0.17);}
+.commonSection_method::before{position:absolute; content:""; width:100%; height:89%; bottom:0; left:50%; transform: translate(-50%, 0); background-color:#fff; opacity:1; border-radius:150% 150% 0 0;}
+.commonSection_method .Inner{padding:0 50px;}
+.commonSection_method .subTitle h1 > b{color:#8e7a5a;}
+.commonSection_method ul{display:table; overflow:hidden; border-spacing:15px;}
+.commonSection_method ul li{display:table-cell; vertical-align:top; width:33.33%; border:1px solid #d6c09d; border-radius:20px; overflow:hidden; background-color:#fdfbf9;}
+.commonSection_method ul li .txtBox{width:100%; padding:2em 1.8em; text-align:left;}
+.commonSection_method ul li .txtBox h2{font-size:26px; color:#8e7a5a; font-weight:500; margin-bottom:0.8em;}
+.commonSection_method ul li .txtBox h2 > b{font-weight:300;}
+.commonSection_method ul li .txtBox p{font-size:20px; color:#333;}
+	/*꾸밈 텍스트*/
+	.commonSection_method .deco{position:absolute; width:500px; height:40px;}
+	.commonSection_method .deco.top{top:3em; right:4em; text-align:right;}
+	.commonSection_method .deco.bottom{bottom:19em; left:-10em; text-align:left; transform:rotate(-90deg);}
+	.commonSection_method .deco small{display:inline-block; font-size:13px; letter-spacing:0.2em !important; color:#8e7a5a; opacity:0.5; font-weight:300;}
+
+/* 시술 > 공통하단 > 치료시스템 */
+.commonSection_system{position:relative; overflow:hidden; padding:100px 0; background-color:rgba(80,127,112,0.25);}
+.commonSection_system::before{position:absolute; content:""; width:650px; height:631px; top:-8em; right:-4em; background-image:url("/clinicInfo365maeil/img/logo_back_green.png"); background-repeat:no-repeat; background-size:cover; background-position:center; opacity:0.08;}
+.commonSection_system .subTitle small{color:#285c4d;}
+.commonSection_system ul{overflow:hidden;}
+.commonSection_system ul li{float:left; width:310px; margin-right:20px; border-radius:20px; overflow:hidden; border:1px solid #285C4D;}
+.commonSection_system ul li:last-child{margin-right:0;}
+.commonSection_system ul li .imgBox{width:100%; height:300px; overflow:hidden;}
+.commonSection_system ul li .imgBox img{height:100%;}
+.commonSection_system ul li .txtBox{width:100%; height:240px; padding:30px 20px; background-color:#285C4D;}
+.commonSection_system ul li .txtBox h2{font-size:24px; color:#faf0e1; font-weight:600; font-family: 'Noto Serif KR', serif; margin-bottom:20px;}
+.commonSection_system ul li .txtBox p{font-size:20px; color:#fff;}
+/*입원안내*/
+.hospitalizeWrap .commonSection_system ul li .txtBox{height:310px;}
+/*교통사고*/
+.accidentWrap .commonSection_system ul{padding:0 50px;}
+.accidentWrap .commonSection_system ul li{width:386px; margin-bottom:20px; border:1px solid #b8c4c0;}
+.accidentWrap .commonSection_system ul li:nth-child(3n){margin-right:0;}
+.accidentWrap .commonSection_system ul li .txtBox{height:265px; background-color:#fff; border-top:1px solid #b8c4c0;}
+.accidentWrap .commonSection_system ul li .txtBox h2{color:#285C4D;}
+.accidentWrap .commonSection_system ul li .txtBox p{color:#333;}
+
+/* 시술 > 공통하단 > 특별함 */
+.commonSection_special{position:relative; overflow:hidden; padding:100px 0; background-image:url('/clinicInfo365maeil/img/common_special_back.jpg'); background-repeat:no-repeat; background-size:cover; background-position:center top; }
+.commonSection_special .Inner{padding:0 50px;}
+.commonSection_special ul{position:relative; }
+.commonSection_special ul li{position:relative; display:table; margin-bottom:50px; background-color:#fff; border-radius:60px 0 60px 0; overflow:hidden; box-shadow:4px 4px 14px rgba(0,0,0,0.05);}
+.commonSection_special ul li > div{display:table-cell; width:50%; vertical-align:middle;}
+.commonSection_special ul li .txtBox{position:relative; text-align:left; padding-left:50px;}
+.commonSection_special ul li .txtBox::before{position:absolute; content:""; width:228px; height:221px; bottom:-46px; right:-48px; background-image:url('/clinicInfo365maeil/img/logo_back_green.png'); background-repeat:no-repeat; background-size:cover; background-position:center; opacity:0.05; z-index:-1;}
+.commonSection_special ul li .txtBox.right{text-align:right; padding-right:50px;}
+.commonSection_special ul li .txtBox.right::before{bottom:-46px; left:-48px;}
+.commonSection_special ul li .txtBox h2{font-size:30px; font-weight:600; color:#507f70; font-family: 'Noto Serif KR', serif; margin-bottom:35px;}
+.commonSection_special ul li .txtBox p{font-size:20px; color:#333;}
+
+/* 시술 > 질환 차이점 */
+.section_difference{position:relative; overflow:hidden; padding:100px 0; background-color:#f0f0f0;}
+.section_difference .Inner{padding:0 100px;}
+.section_difference ul{overflow:hidden;}
+.section_difference ul li{float:left; width:340px; margin-right:40px;}
+.section_difference ul li:last-child{margin-right:0;}
+.section_difference ul li > div {text-align:center;}
+.section_difference ul li .titleBox{width:100%; background-color:#c4c4c4; color:#333; border-radius:100px; padding:0.8em; margin-bottom:20px;}
+.section_difference ul li .titleBox h2{font-size:28px; color:#333; font-weight:400;}
+.section_difference ul li .textBox{display:table; width:100%; height:230px; background-color:#fff; border-radius:30px; border:1px solid #ddd; padding:20px 15px;}
+.section_difference ul li .textBox p{display:table-cell; vertical-align:middle; font-size:20px; color:#333; line-height:1.7 !important;}
+.section_difference ul li.active .titleBox{background-color:#285C4D; color:#fff;}
+.section_difference ul li.active .titleBox h2{font-weight:600; color:#fff;}
+.section_difference ul li.active .textBox{border:1px solid #285C4D;}
+
+/* 시술 > 진행단계 */
+.section_step{position:relative; overflow:hidden; padding:100px 0; background-image: linear-gradient(to bottom, #f6f6f6, #e7eeec);}
+.section_step::before{position:absolute; content:""; width:567px; height:551px; top:-5em; right:0; background-image:url("/clinicInfo365maeil/img/logo_back_green.png"); background-repeat:no-repeat; background-size:cover; background-position:center; opacity:0.05;}
+.section_step ul{width:1100px; margin:0 auto; overflow:hidden;}
+.section_step ul li{display:table; width:100%; margin-bottom:30px;}
+.section_step ul li:nth-child(1){border:1px solid #285c4d;}
+.section_step ul li:nth-child(2){border:1px solid #356f5e;}
+.section_step ul li:nth-child(3){border:1px solid #43826f; margin-bottom:0;}
+.section_step ul li > div{display:table-cell; vertical-align:middle; padding:1.5em;}
+.section_step ul li .titleBox{width:25%;}
+.section_step ul li:nth-child(1) .titleBox{background-color:#285c4d;}
+.section_step ul li:nth-child(2) .titleBox{background-color:#356f5e;}
+.section_step ul li:nth-child(3) .titleBox{background-color:#43826f;}
+.section_step ul li .titleBox h2{font-size:24px; color:#fff; font-weight:600; margin-bottom:8px;}
+.section_step ul li .titleBox h3{font-size:22px; color:#fff; font-weight:400;}
+.section_step ul li .textBox{width:75%; background-color:#fff; text-align:left; padding-left:40px;}
+.section_step ul li .textBox p{font-size:20px; color:#333; line-height:1.5 !important;}
+/*중풍후유증/안면마비*/
+.section_step2{position:relative; overflow:hidden; padding:100px 0; background-color:rgba(214,192,157,0.12); background-image:none;}
+.section_step2::before{display:none;} 
+.section_step2 .subTitle h2{width:220px; font-size:28px; color:#333; font-weight:500; padding:13px 0; background-color:#fff; border:1px solid #d6c09d; border-radius:100px; margin:0 auto;}
+.section_step2 ul{width:900px; }
+.section_step2 ul li{border:1px solid #d6c09d;}
+.section_step2 ul li .titleBox{background-color:#d6c09d;}
+.section_step2 ul li:nth-child(1){border:1px solid #d6c09d;}
+.section_step2 ul li:nth-child(1) .titleBox{background-color:#d6c09d;}
+.section_step2 ul li:nth-child(2){border:1px solid #d6c09d;}
+.section_step2 ul li:nth-child(2) .titleBox{background-color:#d6c09d;}
+.section_step2 ul li .titleBox h2{font-weight:500; color:#333;}
+
+/* 시술 > 자가진단방법 */
+.section_test{position:relative; overflow:hidden; padding:100px 0; background-color:#e7eeec;}
+.section_test::before{position:absolute; content:""; width:567px; height:551px; top:-5em; right:0; background-image:url("/clinicInfo365maeil/img/logo_back_green.png"); background-repeat:no-repeat; background-size:cover; background-position:center; opacity:0.05;}
+.section_test .Inner{padding:0 50px;}
+.section_test ul{display:table; overflow:hidden;}
+.section_test ul li{display:table-cell; vertical-align:middle;}
+.section_test ul li > div{width:50%;}
+.section_test ul li .imgBox{width:100%; border:1px solid #285C4D; border-radius:30px; overflow:hidden;}
+.section_test ul li .txtBox{width:100%; padding:0 50px 0 70px; text-align:left;}
+.section_test ul li .txtBox h2{font-size:30px; color:#333; font-weight:300; margin-bottom:25px;}
+.section_test ul li .txtBox h2 > b{font-weight:500;}
+.section_test ul li .txtBox p{font-size:22px; line-height:1.5 !important; color:#333;}
+
+/* 시술 > 치료종류 */
+.section_type{position:relative; overflow:hidden; padding:100px 0; background-image: linear-gradient(to bottom, #f8f8f8, #e7eeec);}
+.section_type .Inner{padding:0 50px;}
+.section_type .type01{display:table; overflow:hidden; border-spacing:25px; margin-bottom:80px;}
+.section_type .type01 li{display:table-cell; width:33.33%; vertical-align:top; border:1px solid #285C4D; border-radius:20px; overflow:hidden; background-color:#285C4D;}
+.section_type .type01 .imgBox img{width:100%;}
+.section_type .type01 li .txtBox{width:100%; padding:1.8em 1.5em;}
+.section_type .type01 li .txtBox h2{font-size:24px; color:#fff; font-weight:500; margin-bottom:15px;}
+.section_type .type01 li .txtBox p{font-size:20px; color:#fff; line-height:1.5 !important;}
+.section_type .type02 li{display:table; overflow:hidden; margin-bottom:50px;}
+.section_type .type02 li:last-child{margin-bottom:0;}
+.section_type .type02 li > div{display:table-cell; vertical-align:middle;}
+.section_type .type02 li .imgBox{width:45%; border:2px solid #fff; border-radius:50px; overflow:hidden;}
+.section_type .type02 li .imgBox{}
+.section_type .type02 li .txtBox{width:55%; text-align:left; padding:0 0 0 3em;}
+.section_type .type02 li .txtBox h2{font-size:26px; color:#333; font-weight:500; margin-bottom:25px;}
+.section_type .type02 li .txtBox p{font-size:18px; color:#333; font-weight:400; line-height:1.5 !important;}
+.section_type2{padding:100px 0 70px;}
+.section_type2 .subTitle{margin:25px 0 0 !important;}
+.section_type2 .subTitle h1{margin:25px 0 0 !important;}
+.section_type2 .type01{border-spacing:79px; margin-bottom:0;}
+.section_type2 .type01 li{width:50%;}
+/*안면마비 추가*/
+.section_type3 .type01{border-spacing:40px; margin-bottom:0;}
+.section_type3 .type01 li{width:50%;}
+.section_type3 .type01 li .titleBox{display:block; width:100%; padding:0.5em 0; text-align:center;}
+.section_type3 .type01 li .titleBox h3{display:block; width:100%; font-size:27px; line-height:1.3; font-weight:-0.05em; color:#fff; font-weight:500;}
+.section_type3 .type01 li .txtBox{display:block; width:100%; background-color:#f6f6f6; border-top:1px solid #285C4D;}
+.section_type3 .type01 li .txtBox h4{display:block; width:100%; font-size:24px; line-height:1.3; font-weight:-0.05em; color:#285C4D; font-weight:600; margin-bottom:0.5em;}
+.section_type3 .type01 li .txtBox p{display:block; width:100%; font-size:22px; line-height:1.4; font-weight:-0.05em; color:#333; font-weight:400;}
+/*입원안내*/
+.hospitalizeWrap .section_type{background-image: linear-gradient(to bottom, #fff, #e7eeec);}
+.hospitalizeWrap .section_type .txtBox{margin:80px auto 0;}
+.section_type .txtBox h3{font-size:26px; line-height:1.5 !important; font-weight:500; color:#333;}
+
+/* 시술 > 차이점2 */
+.section_gap{position:relative; overflow:hidden; padding:100px 0; background-color:#f6f6f6;}
+.section_gap .Inner{margin:0 auto;}
+.section_gap ul{display:table; overflow:hidden; margin:0 auto; width:100%;}
+.section_gap ul li{display:table-cell; vertical-align:top;}
+.section_gap ul li.side{width:20%;}
+.section_gap ul li.side h2{width:350px; background-color:#fff; border-radius:200px; margin-bottom:50px; font-size:26px; font-weight:500; color:#333; padding:0.6em 0.4em;}
+.section_gap ul li.side h2.active{background-color:#285C4D; color:#fff; font-weight:600;}
+.section_gap ul li.side div{display:table; width:350px; height:110px; background-color:#fff; margin-bottom:40px; padding:0.5em 0.3em; border:1px solid #ddd;}
+.section_gap ul li.side div p{display:table-cell; vertical-align:middle; font-size:24px; font-weight:400; color:#333;}
+.section_gap ul li.center{width:60%; padding-top:118px;}
+.section_gap ul li.center div{margin:0 auto 40px; display:table; height:110px;}
+.section_gap ul li.center div h3{position:relative; display:table-cell; vertical-align:middle; width:260px; background-color:#eeeeee; border:2px solid #fff; padding:1em 0.2em; border-radius:200px; margin:4em auto; font-size:24px; font-weight:400; color:#333;}
+.section_gap ul li.center div h3::before{position:absolute; content:""; width:56%; height:1px; border-bottom:1px dashed #999; top:50%; left:-160px;}
+.section_gap ul li.center div h3::after{position:absolute; content:""; width:56%; height:1px; border-bottom:1px dashed #999; top:50%; right:-160px;}
+.section_gap small{color:#999; text-align:right; margin-top:5px; display:block; width:100%;}
+
+/* 시술 > 치료팀소개 */
+.section_introduce{position:relative; overflow:hidden; padding:100px 0; background-color:rgba(214,192,157,0.12);}
+.section_introduce .Inner{}
+.section_introduce ul{width:100%; overflow:hidden;}
+.section_introduce ul li{display:inline-table; width:31%; height:300px; margin:0 10px; background-repeat:no-repeat; background-position:center top; background-size:cover; border-radius:20px; border:1px solid #d6c09d; overflow:hidden; margin-top:20px;}
+.section_introduce ul li:nth-child(-n+3){margin-top:0;}
+.section_introduce ul li:nth-child(){margin-top:0;}
+.section_introduce ul li h2{font-size:28px; color:#fff; font-weight:600; font-family: 'Noto Serif KR', serif; margin:75px auto 40px;}
+.section_introduce ul li a{font-size:22px; color:#fff; font-weight:400; padding:0.5em 1.2em; border:1px solid #fff; border-radius:100px; transition:0.3s;}
+.section_introduce ul li a:hover{border:1px solid #d6c09d; background-color:#d6c09d; transition:0.3s;}
+	/*동대문점*/
+	.C00211 .section_introduce .subTitle p{font-size:27px; line-height:1.7 !importnat; font-family: 'Noto Serif KR', serif;}
+	.C00211 .section_introduce .Inner{padding:0 50px;}
+	.C00211 .section_introduce ul{width:100%; overflow:hidden; margin-bottom:30px;}
+	.C00211 .section_introduce ul:last-child{margin-bottom:0;}
+	.C00211 .section_introduce ul li{position:relative; width:48%; height:675px; border-radius:20px; border:1px solid #d6c09d; overflow:hidden; background-color:#fff; padding:0 2em 0 3em;}
+	.C00211 .section_introduce ul li::before{position:absolute; content:""; width:303px; height:294px; bottom:-3em; right:-5em; background-image:url("/clinicInfo365maeil/img/logo_back_gray.png"); background-repeat:no-repeat; background-size:cover; background-position:center; opacity:0.7; z-index:-1;}
+	.C00211 .section_introduce ul li h2{width:260px; padding:0.4em 0.5em; margin:40px auto; background-color:#d6c09d; border-radius:100px; color:#fff; font-weight:500; font-family: 'Noto Sans KR', sans-serif;}
+	.C00211 .section_introduce ul li h2 > b{font-weight:300; font-family: 'Noto Sans KR', sans-serif;}
+	.C00211 .section_introduce ul li .txtBox{text-align:left; margin-bottom:20px;}
+	.C00211 .section_introduce ul li .txtBox p{position:relative; font-size:18px; color:#333; margin-bottom:7px;}
+	.C00211 .section_introduce ul li .txtBox p::before{position:absolute; width:3px; height:3px; background-color:#d6c09d; border-radius:10px; top:13px; left:-15px; content:"";}
+
+	/*안양평촌점*/
+	.C00212 .section_introduce .subTitle p{font-size:27px; line-height:1.7 !importnat; font-family: 'Noto Serif KR', serif;}
+	.C00212 .section_introduce .Inner{padding:0 50px;}
+	.C00212 .section_introduce ul{width:100%; overflow:hidden; margin-bottom:30px;}
+	.C00212 .section_introduce ul.alone{width:50%; margin:0 auto 30px;}
+	.C00212 .section_introduce ul:last-child{margin-bottom:0;}
+	.C00212 .section_introduce ul li{position:relative; width:48%; height:675px; border-radius:20px; border:1px solid #d6c09d; overflow:hidden; background-color:#fff; padding:0 2em 0 3em;}
+	.C00212 .section_introduce ul li::before{position:absolute; content:""; width:303px; height:294px; bottom:-3em; right:-5em; background-image:url("/clinicInfo365maeil/img/logo_back_gray.png"); background-repeat:no-repeat; background-size:cover; background-position:center; opacity:0.7; z-index:-1;}
+	.C00212 .section_introduce ul li h2{width:260px; padding:0.4em 0.5em; margin:40px auto; background-color:#d6c09d; border-radius:100px; color:#fff; font-weight:500; font-family: 'Noto Sans KR', sans-serif;}
+	.C00212 .section_introduce ul li h2 > b{font-weight:300; font-family: 'Noto Sans KR', sans-serif;}
+	.C00212 .section_introduce ul li .txtBox{text-align:left; margin-bottom:20px;}
+	.C00212 .section_introduce ul li .txtBox p{position:relative; font-size:18px; color:#333; margin-bottom:7px;}
+	.C00212 .section_introduce ul li .txtBox p::before{position:absolute; width:3px; height:3px; background-color:#d6c09d; border-radius:10px; top:13px; left:-15px; content:"";}
+
+	/*동대문점*/
+	.C00226 .section_introduce .subTitle p{font-size:27px; line-height:1.7 !importnat; font-family: 'Noto Serif KR', serif;}
+	.C00226 .section_introduce .Inner{padding:0 50px;}
+	.C00226 .section_introduce ul{width:100%; overflow:hidden; margin-bottom:30px;}
+	.C00226 .section_introduce ul:last-child{margin-bottom:0;}
+	.C00226 .section_introduce ul li{position:relative; width:48%; height:675px; border-radius:20px; border:1px solid #d6c09d; overflow:hidden; background-color:#fff; padding:0 2em 0 3em;}
+	.C00226 .section_introduce ul li::before{position:absolute; content:""; width:303px; height:294px; bottom:-3em; right:-5em; background-image:url("/clinicInfo365maeil/img/logo_back_gray.png"); background-repeat:no-repeat; background-size:cover; background-position:center; opacity:0.7; z-index:-1;}
+	.C00226 .section_introduce ul li h2{width:260px; padding:0.4em 0.5em; margin:40px auto; background-color:#d6c09d; border-radius:100px; color:#fff; font-weight:500; font-family: 'Noto Sans KR', sans-serif;}
+	.C00226 .section_introduce ul li h2 > b{font-weight:300; font-family: 'Noto Sans KR', sans-serif;}
+	.C00226 .section_introduce ul li .txtBox{text-align:left; margin-bottom:20px;}
+	.C00226 .section_introduce ul li .txtBox p{position:relative; font-size:18px; color:#333; margin-bottom:7px;}
+	.C00226 .section_introduce ul li .txtBox p::before{position:absolute; width:3px; height:3px; background-color:#d6c09d; border-radius:10px; top:13px; left:-15px; content:"";}
+
+	/*경기광주점*/
+	.C00238 .section_introduce .subTitle p{font-size:27px; line-height:1.7 !importnat; font-family: 'Noto Serif KR', serif;}
+	.C00238 .section_introduce .Inner{padding:0 50px;}
+	.C00238 .section_introduce ul{width:100%; overflow:hidden; margin-bottom:30px;}
+	.C00238 .section_introduce ul.alone{}
+	.C00238 .section_introduce ul:last-child{margin-bottom:0;}
+	.C00238 .section_introduce ul li{position:relative; width:48%; height:675px; border-radius:20px; border:1px solid #d6c09d; overflow:hidden; background-color:#fff; padding:0 2em 0 3em;}
+	.C00238 .section_introduce ul li::before{position:absolute; content:""; width:303px; height:294px; bottom:-3em; right:-5em; background-image:url("/clinicInfo365maeil/img/logo_back_gray.png"); background-repeat:no-repeat; background-size:cover; background-position:center; opacity:0.7; z-index:-1;}
+	.C00238 .section_introduce ul li h2{width:260px; padding:0.4em 0.5em; margin:40px auto; background-color:#d6c09d; border-radius:100px; color:#fff; font-weight:500; font-family: 'Noto Sans KR', sans-serif;}
+	.C00238 .section_introduce ul li h2 > b{font-weight:300; font-family: 'Noto Sans KR', sans-serif;}
+	.C00238 .section_introduce ul li .txtBox{text-align:left; margin-bottom:20px;}
+	.C00238 .section_introduce ul li .txtBox p{position:relative; font-size:18px; color:#333; margin-bottom:7px;}
+	.C00238 .section_introduce ul li .txtBox p::before{position:absolute; width:3px; height:3px; background-color:#d6c09d; border-radius:10px; top:13px; left:-15px; content:"";}
+
+	/* 강북수유점 */
+	.C00304 .section_introduce .subTitle p{font-size:27px; line-height:1.7 !importnat; font-family: 'Noto Serif KR', serif;}
+	.C00304 .section_introduce .Inner{padding:0 50px;}
+	.C00304 .section_introduce ul{width:100%; overflow:hidden; margin-bottom:30px;}
+	.C00304 .section_introduce ul.alone{}
+	.C00304 .section_introduce ul:last-child{margin-bottom:0;}
+	.C00304 .section_introduce ul li{position:relative; width:48%; height:675px; border-radius:20px; border:1px solid #d6c09d; overflow:hidden; background-color:#fff; padding:0 2em 0 3em;}
+	.C00304 .section_introduce ul li::before{position:absolute; content:""; width:303px; height:294px; bottom:-3em; right:-5em; background-image:url("/clinicInfo365maeil/img/logo_back_gray.png"); background-repeat:no-repeat; background-size:cover; background-position:center; opacity:0.7; z-index:-1;}
+	.C00304 .section_introduce ul li h2{width:260px; padding:0.4em 0.5em; margin:40px auto; background-color:#d6c09d; border-radius:100px; color:#fff; font-weight:500; font-family: 'Noto Sans KR', sans-serif;}
+	.C00304 .section_introduce ul li h2 > b{font-weight:300; font-family: 'Noto Sans KR', sans-serif;}
+	.C00304 .section_introduce ul li .txtBox{text-align:left; margin-bottom:20px;}
+	.C00304 .section_introduce ul li .txtBox p{position:relative; font-size:18px; color:#333; margin-bottom:7px;}
+	.C00304 .section_introduce ul li .txtBox p::before{position:absolute; width:3px; height:3px; background-color:#d6c09d; border-radius:10px; top:13px; left:-15px; content:"";}
+
+/* 시술 > 큐엔에이 */
+.section_qna{position:relative; overflow:hidden; padding:100px 0; background-image: linear-gradient(to bottom, #e7eeec, #f6f6f6);}
+.section_qna .Inner{padding:0 150px;}
+.section_qna ul{width:100%; overflow:hidden;}
+.section_qna ul li{width:100%; margin-bottom:40px;}
+.section_qna ul li:last-child{margin-bottom:0;}
+.section_qna ul li > div{border-radius:20px; box-shadow:0px 8px 8px rgba(0,0,0,0.05);}
+.section_qna ul li .left{float:left; background-color:#fff; padding:1.5em 1.5em; width:60%; text-align:left; margin-bottom:20px; border:2px solid #285C4D;}
+.section_qna ul li .right{float:right; background-color:#285C4D; padding:1.5em 1.5em; width:60%; text-align:right; margin-bottom:50px; border:2px solid #fff;}
+.section_qna ul li > div p{font-size:22px; line-height:1.6 !important; color:#333;}
+.section_qna ul li .right p{font-size:22px; line-height:1.6 !important; color:#fff;}
+
+	/* 공통 > 큐엔에이 */
+	.comonSection_qna{background-color:#f3f3f3; background-repeat:no-repeat; background-size:cover; background-position:center;}
+	.comonSection_qna .subTitle h1 span{color:#285c4d; font-family: 'Noto Serif KR', sans-serif; font-weight: 600;}
+	.comonSection_qna ul li{}
+	.comonSection_qna ul li .left{border-radius:50px; border:none; background-color:#fff; padding:1.5em 2.5em; width:auto;}
+	.comonSection_qna ul li > div p{font-weight:500;}
+	.comonSection_qna ul li > div p b{color:#285c4d; font-weight:500; margin-right:10px;}
+	.comonSection_qna ul li .right{border-radius:37.5px; padding:35px; border:none; width:75%; display:flex; position:relative; overflow:hidden;}
+	.comonSection_qna ul li .right::before{content:''; display:inline-block; width:190px; height:190px; background-image:url("/clinicInfo365maeil/img/qna_logo_white.png"); background-repeat:no-repeat; background-size:cover; background-position:center; opacity:1; position:absolute; right:-25px; top:-65px; z-index:0;}
+	.comonSection_qna ul li .right p{text-align:left;}
+	.comonSection_qna ul li .right .ThumbBox{color:#faf0e1; font-weight:500; margin-right:10px;}
+	.comonSection_qna ul li .right p span{display:inline-block; color:#faf0e1; font-weight:500;}
+
+/* 시술 > 시작문구 */
+.section_start{position:relative; overflow:hidden; padding:100px 0; background-image: linear-gradient(to bottom, #fff, #f9f9f9);}
+.section_start .subTitle{margin-bottom:0;}
+.section_start .subTitle h1{font-weight:400; margin:25px 0 0;}
+.section_start .subTitle h1 > b{font-weight:600; color:#333;}
+.section_start .subTitle h1 > b.green{color:#507F70;}
+.section_start .subTitle h1 > i{padding-right:15px; vertical-align:top;}
+.section_start .subTitle h1 > i img{width:1em;}
+
+/* 시술 > 원인 */
+.section_cause{position:relative; overflow:hidden; padding:100px 0; background-color:#f8f8f8;}
+.section_cause .Inner{padding:0 50px;}
+.section_cause ul{width:100%; overflow:hidden;}
+.section_cause ul li{float:left; width:380px; margin-right:30px;}
+.section_cause ul li:last-child{margin-right:0;}
+.section_cause ul li > div{}
+.section_cause ul li .imgBox{width:100%; height:260px; border-radius:20px; overflow:hidden; border:1px solid #dddddd;}
+.section_cause ul li .txtBox{width:100%; padding:2em 0.8em 0;}
+.section_cause ul li .txtBox h2{font-size:24px; color:#507f70; font-weight:600; margin-bottom:25px;}
+.section_cause ul li .txtBox p{font-size:20px; color:#333;}
+
+/* 시술 > 만족도설문 */
+.section_graph{position:relative; overflow:hidden; padding:100px 0; background-color:rgba(80,127,112,0.12);}
+.section_graph .Inner{padding:0 70px;}
+.section_graph ul{width:100%; overflow:hidden;}
+.section_graph ul li{display:table; margin:0 auto;}
+.section_graph ul li > div{display:table-cell; vertical-align:middle;}
+.section_graph ul li .imgBox{width:40%;}
+.section_graph ul li .txtBox{width:60%; padding-left:3em; text-align:left;}
+.section_graph ul li .txtBox p{position:relative; width:100%; background-color:#fff; border-radius:30px; margin-bottom:30px; padding:1.2em 1.5em 1.2em 2.5em; font-size:24px; color:#333;}
+.section_graph ul li .txtBox p::before{position:absolute; content:"Q."; width:15px; height:15px; line-height:15px; color:#285C4D; font-weight:500; top:35px; left:25px; font-size:24px;}
+.section_graph ul li .txtBox p.answer::before{content:"A.";}
+.section_graph ul li .txtBox p > b{color:#507F70; font-weight:600;}
+
+/* 시술 > 치료프로그램 */
+.section_circle_right{position:relative; overflow:hidden; padding:100px 0; background-color:#f6f6f6;}
+.section_circle_right::before{position:absolute; width:40%; height:400px; background-color:#fff; border-radius:0 200px 200px 0; top:50%; left:0; transform:translate(0, -50%); content:""; z-index:1;}
+.logo_back{position:absolute; top:-1em; left:-10em; z-index:0; width:1009px; height:979px; opacity:0.08;}
+.section_circle_right ul{width:100%; overflow:hidden;}
+.section_circle_right ul li{float:left; position:relative; z-index:1;}
+.section_circle_right ul li:nth-child(1){width:40%; text-align:left; padding-top:17em;}
+.section_circle_right ul li:nth-child(2){width:60%; padding-left:3em;}
+.section_circle_right ul li > p{font-size:26px; line-height:1.5 !important; color:#333; }
+.section_circle_right ul li > p > b{font-weight:500;}
+.section_circle_right ul li > div{display:table; float:left; width:340px; height:340px; border:1px solid #285C4D; border-radius:100%; background-color:#fff; margin-right:20px; box-shadow:0px 5px 10px rgba(0,0,0,0.1);}
+.section_circle_right ul li .circle01{margin-bottom:20px;}
+.section_circle_right ul li .circle02{margin-right:0; margin-bottom:20px; border:1px solid #507F70;}
+.section_circle_right ul li .circle03{border:1px solid #507F70;}
+.section_circle_right ul li .circle04{margin-right:0;}
+.section_circle_right ul li > div h2{display:table-cell; vertical-align:middle; font-size:26px; color:#285C4D; font-weight:500;}
+.section_circle_right ul li .circle02 h2{color:#507F70;}
+.section_circle_right ul li .circle03 h2{color:#507F70;}
+/*수술후재활*/
+.section_circle_right2 ul li:nth-child(1){padding-top:16em;}
+.section_circle_right2 ul li .circle{display:table; }
+.section_circle_right2 ul li .circle > div{display:table-cell; vertical-align:middle; padding:0 30px;}
+.section_circle_right2 ul li > div h2{display:block; }
+.section_circle_right2 ul li > div p{margin-top:15px; font-size:19px; color:#333;}
+/*다이어트*/
+.dietWrap .section_circle_right ul li:nth-child(1){padding-top:18em;}
+
+/* 시술 > 공통하단 > 치료절차 */
+.commonSection_step_number{position:relative; overflow:hidden; padding:100px 0; background-color:#f2f2f2; background-size:cover; background-repeat:no-repeat; background-position:center;}
+.commonSection_step_number ul{position:relative; width:100%; overflow:hidden;}
+.commonSection_step_number ul::before{position:absolute; content:""; width:80%; height:1px; border-bottom:1px dashed #999; top:35px; left:50%; transform: translate(-50%, 0);}
+.commonSection_step_number ul li{float:left; width:25%;}
+.commonSection_step_number ul li{}
+.commonSection_step_number ul li{}
+.commonSection_step_number ul li span{display:block; width:70px; height:70px; border-radius:100px; background-color:#689a8a; color:#fff; font-size:30px; font-weight:600; font-family: 'SUIT'; margin:0 auto 25px; padding:15px 0 0;}
+.commonSection_step_number ul li:nth-child(2) span{background-color:#59897a;}
+.commonSection_step_number ul li:nth-child(3) span{background-color:#387463;}
+.commonSection_step_number ul li:nth-child(4) span{background-color:#285c4d;}
+.commonSection_step_number ul li:nth-child(5) span{background-color:#132922;}
+.commonSection_step_number ul li h2{width:60%; padding:20px 0; background-color:#fff; border:1px solid #689a8a; font-size:20px; color:#333; font-weight:500; margin:0 auto 25px; border-radius:20px;}
+.commonSection_step_number ul li:nth-child(2) h2{border:1px solid #59897a;}
+.commonSection_step_number ul li:nth-child(3) h2{border:1px solid #387463;}
+.commonSection_step_number ul li:nth-child(4) h2{border:1px solid #285c4d;}
+.commonSection_step_number ul li:nth-child(5) h2{border:1px solid #132922;}
+.commonSection_step_number ul li p{font-size:19px; color:#333;}
+.commonSection_step_number2 ul li{float:left; width:20%;}
+
+	/* 시술 > 특성화센터 > 대상포진_발생과정 */
+	.shinglesWrap .commonSection_step_number .subTitle h1 span{font-family: 'Noto Serif KR', serif; font-weight:600; color:#507f70;}
+	.shinglesWrap .commonSection_step_number ul li{float:left; width:25%;}
+
+
+/* 시술 > 공통하단 > 수술후재활치료효과 */
+.commonSection_circle_img{position:relative; overflow:hidden; padding:100px 0; background-color:rgba(214,192,157,0.12);}
+.commonSection_circle_img .Inner{padding:0 50px;}
+.commonSection_circle_img ul{width:100%; overflow:hidden;}
+.commonSection_circle_img ul li{float:left; width:380px; margin-right:30px;}
+.commonSection_circle_img ul li:nth-child(1){margin-bottom:50px;}
+.commonSection_circle_img ul li:nth-child(2){margin-bottom:50px;}
+.commonSection_circle_img ul li:nth-child(3){margin-bottom:50px;}
+.commonSection_circle_img ul li:nth-child(3n){margin-right:0;}
+.commonSection_circle_img ul li div{display:table; width:380px; height:380px; margin:0 auto 35px; overflow:hidden; background-size:cover; background-repeat:no-repeat; background-position:center; border:1px solid #d6c09d; border-radius:100%;}
+.commonSection_circle_img ul li div h2{display:table-cell; vertical-align:middle; font-size:28px; color:#333; font-weight:500;}
+.commonSection_circle_img ul li p{font-size:20px; color:#333;}
+
+/* 시술 > 약종류 */
+.section_kind{position:relative; overflow:hidden; padding:100px 0; background-color:#fff;}
+.section_kind .Inner{padding:0 50px;}
+.section_kind ul li{display:table; overflow:hidden; margin-bottom:50px;}
+.section_kind ul li:last-child{margin-bottom:0;}
+.section_kind ul li > div{display:table-cell; vertical-align:middle;}
+.section_kind ul li .imgBox{width:45%; border:1px solid #d6c09d; overflow:hidden;}
+.section_kind ul li .imgBox{}
+.section_kind ul li .txtBox{width:55%; text-align:left; padding:0 0 0 3em;}
+.section_kind ul li .txtBox h2{font-size:26px; color:#8e7a5a; font-weight:500; margin-bottom:30px;}
+.section_kind ul li .txtBox p{font-size:18px; color:#333; font-weight:400; line-height:1.5 !important; margin-top:40px;}
+.section_kind ul li .txtBox i{display:block; width:130%; height:1px; border-bottom:1px solid #d6c09d; margin-left:-50px;}
+/*보약*/
+.restorativeWrap .section_kind{background-color:rgba(214,192,157,0.12);}
+
+/* 시술 > 필요한증상 */
+.section_need{position:relative; overflow:hidden; padding:100px 0; background-image: linear-gradient(to bottom, #fff, #f8f8f8);}
+.section_need ul{width:100%; display:table; overflow:hidden; border-spacing:20px;}
+.section_need ul li{display:table-cell; width:25%; vertical-align:top; border:1px solid #ddd; border-radius:20px; overflow:hidden; background-color:#fff;}
+.section_need ul li .imgBox{width:100%;}
+.section_need ul li .imgBox img{width:100%;}
+.section_need ul li .txtBox{width:100%; height:260px; padding:1.8em 1.5em;}
+.section_need ul li .txtBox h2{font-size:24px; color:#507F70; font-weight:600; margin-bottom:25px;}
+.section_need ul li .txtBox p{font-size:19px; color:#333; line-height:1.5 !important;}
+
+/* 시술 > 입원안내 > 준비물안내 */
+.section_supplies{}
+.section_supplies{position:relative; overflow:hidden; padding:100px 0; background-color:#fff;}
+.section_supplies::before{position:absolute; content:""; width:100%; height:94%; bottom:-23em; left:50%; transform: translate(-50%, 0); background-color:#f6f6f6; opacity:0.7; border-radius:100% 100% 0 0;}
+.section_supplies .Inner{padding:0 100px;}
+.section_supplies ul{width:100%; overflow:hidden;}
+.section_supplies ul li{float:left; width:340px; margin-right:40px; text-align:center;}
+.section_supplies ul li:last-child{margin-right:0;}
+.section_supplies ul li > div{}
+.section_supplies ul li .imgBox{width:340px; height:340px; border:1px solid #507f70; border-radius:100%; overflow:hidden;}
+.section_supplies ul li h2{display:block; width:100%; color:#507F70; font-weight:600; font-size:25px; margin:35px auto;}
+.section_supplies ul li i{display:block; width:40px; height:3px; background-color:#507F70; margin:0 auto;}
+.section_supplies ul li p{display:block; width:100%; margin:35px auto 0; font-size:19px; color:#333;}
+.section_supplies ul li p > b{font-weight:600; color:#285c4d;}
+
+/* 시술 > 검사안내 */
+.section_inspect{position:relative; overflow:hidden; padding:100px 0; background-image: linear-gradient(to bottom, #fff, #e7eeec);}
+.section_inspect::before{position:absolute; content:""; width:564px; height:549px; top:30em; left:-7em; background-image:url("/clinicInfo365maeil/img/logo_back_white.png"); background-repeat:no-repeat; background-size:cover; background-position:center; opacity:0.5; z-index:0;}
+.section_inspect .Inner{padding:0 50px;}
+.section_inspect ul{position:relative;}
+.section_inspect ul li{position:relative; display:table; margin-bottom:80px;}
+.section_inspect ul li::after{position:absolute; content:"365MAEIL KOREAN MEDICINE HOSPITAL"; bottom:5vw; left:-12vw; width:400px; height:30px; color:#507F70; font-weight:400; font-family: 'Noto Serif KR', serif; font-size:10px; letter-spacing:0.3em; transform: rotate(-90deg);}
+.section_inspect ul li::before{position:absolute; content:""; top:40px; left:-30%; width:130%; height:1px; background-color:#507F70; z-index:-1;}
+.section_inspect ul li.right::after{left:54.5vw;}
+.section_inspect ul li.right::before{left:0;}
+.section_inspect ul li:last-child{margin-bottom:0;}
+.section_inspect ul li > div{display:table-cell; vertical-align:middle;}
+.section_inspect ul li .imgBox{width:45%; border:1px solid #507f70; overflow:hidden;}
+.section_inspect ul li .txtBox{width:55%; text-align:left; padding:0 1em 0 3em;}
+.section_inspect ul li.right .txtBox{padding:0 3em 0 1em;}
+.section_inspect ul li .txtBox h2{font-size:33px; color:#333; font-weight:600; margin-bottom:40px; font-family: 'Noto Serif KR', serif;}
+.section_inspect ul li .txtBox h2 > b{font-weight:400; font-family: 'Noto Serif KR', serif;}
+.section_inspect ul li .txtBox p{font-size:24px; color:#333; line-height:1.5 !important;}
+.section_inspect ul li .txtBox i{display:block; width:130%; height:1px; border-bottom:1px solid #d6c09d; margin-left:-50px;}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* 네이버톡톡, 네이버예약 */
+.snsSection{width:100%; background:#fff; position:relative; border-bottom:1px solid #f0f0f0; padding-bottom:100px;}
+.snsSection:nth-child(2n){padding-bottom:100px;}
+.snsSection .subTitle{padding-top:100px;}
+.snsSection .snsBox{width:100%; background:#f8f8f8; position:relative; padding:60px 100px; border-radius:30px; box-shadow:0px 5px 16px rgba(0,0,0,0.08); border:2px solid #fff; margin-bottom:100px;}
+.snsSection:last-child .snsBox{margin-bottom:0;}
+	/*왼쪽*/
+	.snsSection .snsBox .leftBox{display:inline-block; text-align:center; vertical-align:middle;}
+	.snsSection .snsBox .leftBox img{}
+	.naverTalkWrap .snsSection .snsBox .leftBox img{border-radius:20px;}
+	.naverReserveWrap .snsSection .snsBox .leftBox img{border-radius:none;}
+	.snsSection .snsBox .leftBox p{font-size:30px; font-weight:600; color:#00c63b; line-height:40px; padding-top:25px; letter-spacing:-0.05em;}
+	/*중앙*/
+	.snsSection .snsBox .line{display:inline-block; width:1px; height:330px; border-left:1px solid #ddd; margin:0 150px; vertical-align:middle;}
+	/*오른쪽*/
+	.snsSection .snsBox .rightBox{display:inline-block; vertical-align:middle; text-align:left;}
+	.snsSection .snsBox .rightBox h2{font-size:40px; font-weight:400; line-height:50px; color:#121212; letter-spacing:-0.05em; font-family: 'Noto Serif KR', serif;}
+	.snsSection .snsBox .rightBox h2 > b{color:#507F70; font-family: 'Noto Serif KR', serif;}
+	.snsSection .snsBox .rightBox h2 span{font-weight:600; color:#00c63b;}
+	.snsSection .snsBox .rightBox p{font-size:22px; font-weight:300; line-height:32px; color:#121212; padding:30px 0; letter-spacing:-0.05em;}
+	.snsSection .snsBox .rightBox p strong{font-weight:500;}
+	.snsSection .snsBox .rightBox a{display:inline-block; padding:24px 35px; font-size:24px; line-height:24px; color:#fff; letter-spacing:-0.05em; background-color:#00c63b; border-radius:100px; transition:0.3s;}
+	.snsSection .snsBox .rightBox a img{padding-left:10px;}
+	.snsSection .snsBox .rightBox a > span{text-align:center; padding:0 10px; border-radius:50px; border:2px solid #fff; vertical-align:top; margin-left:10px;}
+	.snsSection .snsBox .rightBox a:hover{background-color:#16aa57; transition:0.3s;}
+
