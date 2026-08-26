@@ -60,6 +60,13 @@ export default async function MediaDetailPage({ params }: { params: Promise<{ sl
           </p>
         </div>
 
+        {post.body_image?.storage_path && (
+          <div className="article-body-image">
+            {/* 임의 R2 도메인 원본 그대로 노출 — next/image 미사용(다른 공개 페이지의 이미지 렌더링과 동일 패턴) */}
+            <img src={post.body_image.storage_path} alt={post.body_image.alt || post.title} />
+          </div>
+        )}
+
         <div className="article-body">
           {sections.length === 0 ? (
             <p>본문 콘텐츠가 준비 중입니다.</p>

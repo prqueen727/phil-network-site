@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Staff } from "@/lib/data/staff";
 
-type FeaturedImage = { id: string; storage_path: string | null; alt: string | null } | null;
+type MediaRef = { id: string; storage_path: string | null; alt: string | null } | null;
 
 // Vercel 서버리스 함수 요청 본문 한도(약 4.5MB)보다 여유를 두고 잡은 클라이언트 사전 검사 값.
 const MAX_UPLOAD_BYTES = 4 * 1024 * 1024;
@@ -17,7 +17,9 @@ export type EditableBlogPost = {
   sections_html: { heading?: string; html?: string }[] | null;
   author_id: string | null;
   featured_image_id: string | null;
-  featured_image: FeaturedImage;
+  featured_image: MediaRef;
+  body_image_id: string | null;
+  body_image: MediaRef;
 };
 
 type SectionBlock = { heading: string; body: string };
@@ -86,6 +88,13 @@ export function BlogEditor({ staff, post }: { staff: Staff[]; post: EditableBlog
   const fileRef = useRef<HTMLInputElement | null>(null);
   const [imageUploading, setImageUploading] = useState(false);
   const [imageMsg, setImageMsg] = useState<string | null>(null);
+
+  const [bodyImageMediaId, setBodyImageMediaId] = useState<string | null>(post?.body_image_id ?? null);
+  const [bodyImageUrl, setBodyImageUrl] = useState<string | null>(post?.body_image?.storage_path ?? null);
+  const [bodyImageAlt, setBodyImageAlt] = useState(post?.body_image?.alt ?? "");
+  const bodyFileRef = useRef<HTMLInputElement | null>(null);
+  const [bodyImageUploading, setBodyImageUploading] = useState(false);
+  const [bodyImageMsg, setBodyImageMsg] = useState<string | null>(null);
 
   const [saving, setSaving] = useState<"draft" | "publish" | null>(null);
   const [saveMsg, setSaveMsg] = useState<{ ok: boolean; text: string } | null>(null);
@@ -160,6 +169,50 @@ export function BlogEditor({ staff, post }: { staff: Staff[]; post: EditableBlog
     }
   }
 
+  async function uploadBodyImage() {
+    const file = bodyFileRef.current?.files?.[0];
+    if (!file) {
+      setBodyImageMsg("파일을 선택해 주세요.");
+      return;
+    }
+    const altValue = bodyImageAlt.trim();
+    if (!altValue) {
+      setBodyImageMsg("대체텍스트(alt)를 입력해 주세요.");
+      return;
+    }
+    if (file.size > MAX_UPLOAD_BYTES) {
+      setBodyImageMsg(`파일이 너무 큽니다 (${(file.size / 1024 / 1024).toFixed(1)}MB). 4MB 이하로 압축한 뒤 다시 시도해 주세요.`);
+      return;
+    }
+    setBodyImageUploading(true);
+    setBodyImageMsg(null);
+    const formData = new FormData();
+    formData.set("file", file);
+    formData.set("alt", altValue);
+    try {
+      const res = await fetch("/api/admin/blogs/upload-image", { method: "POST", body: formData });
+      const json = await res.json();
+      if (!json.ok) {
+        setBodyImageMsg(json.error ?? "업로드에 실패했습니다.");
+        return;
+      }
+      setBodyImageMediaId(json.mediaId);
+      setBodyImageUrl(json.url);
+      setBodyImageMsg("업로드 완료.");
+    } catch {
+      setBodyImageMsg("업로드에 실패했습니다. 파일 용량이 너무 크거나 네트워크 문제일 수 있습니다.");
+    } finally {
+      setBodyImageUploading(false);
+    }
+  }
+
+  function removeBodyImage() {
+    setBodyImageMediaId(null);
+    setBodyImageUrl(null);
+    setBodyImageAlt("");
+    setBodyImageMsg(null);
+  }
+
   async function save(publish: boolean) {
     if (!title.trim()) {
       setSaveMsg({ ok: false, text: "제목을 입력해 주세요." });
@@ -185,6 +238,7 @@ export function BlogEditor({ staff, post }: { staff: Staff[]; post: EditableBlog
       sectionsHtml: sections.map((s) => ({ heading: s.heading, body: s.body })),
       authorId,
       featuredImageId: imageMediaId,
+      bodyImageId: bodyImageMediaId,
       publish,
     };
 
@@ -260,6 +314,38 @@ export function BlogEditor({ staff, post }: { staff: Staff[]; post: EditableBlog
         <button type="button" className="admin-mini-button" disabled={imageUploading} onClick={uploadImage}>
           {imageUploading ? "업로드 중…" : "이미지 업로드"}
         </button>
+      </div>
+
+      <div className="admin-form admin-section-card">
+        <b>본문 이미지 (선택)</b>
+        <p style={{ fontSize: 13, color: "#756b6d", margin: "4px 0 12px" }}>
+          대표 이미지(카드용)와 별개로, 글 본문 안에 1장 삽입됩니다. 네이버 등 외부 노출 시 글이 텍스트로만 안 보이게 도와줍니다.
+        </p>
+        {bodyImageUrl && (
+          <div className="admin-image-preview">
+            {/* 관리자 미리보기 — 임의 R2 도메인이라 next/image 미사용 */}
+            <img src={bodyImageUrl} alt={bodyImageAlt || ""} />
+          </div>
+        )}
+        <label>
+          이미지 파일 (jpg·png·webp)
+          <input ref={bodyFileRef} type="file" accept="image/jpeg,image/png,image/webp" />
+        </label>
+        <label>
+          대체텍스트(alt) — 이미지 내용을 설명하는 문구, 필수
+          <input value={bodyImageAlt} onChange={(e) => setBodyImageAlt(e.target.value)} placeholder="예: 침 치료 과정" />
+        </label>
+        {bodyImageMsg && <p style={{ color: bodyImageMsg === "업로드 완료." ? "#2f6b4f" : "#b3273f", fontSize: 13 }}>{bodyImageMsg}</p>}
+        <div style={{ display: "flex", gap: 10 }}>
+          <button type="button" className="admin-mini-button" disabled={bodyImageUploading} onClick={uploadBodyImage}>
+            {bodyImageUploading ? "업로드 중…" : "이미지 업로드"}
+          </button>
+          {bodyImageUrl && (
+            <button type="button" className="admin-mini-button admin-mini-button-danger" onClick={removeBodyImage}>
+              이미지 제거
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="admin-form admin-section-card">

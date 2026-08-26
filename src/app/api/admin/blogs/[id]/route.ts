@@ -29,6 +29,7 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
       sections: Array.isArray(body.sectionsHtml) ? body.sectionsHtml : [],
       authorId: String(body.authorId ?? ""),
       featuredImageId: body.featuredImageId ? String(body.featuredImageId) : null,
+      bodyImageId: body.bodyImageId ? String(body.bodyImageId) : null,
       publish: !!body.publish,
       existingPublishedAt: existing.published_at,
     });

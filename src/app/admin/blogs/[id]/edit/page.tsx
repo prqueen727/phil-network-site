@@ -15,7 +15,7 @@ export default async function AdminBlogEditPage({ params }: { params: Promise<{ 
     getAllStaff(),
     supabase
       .from("blogs")
-      .select("id, title, slug, excerpt, sections_html, author_id, featured_image_id, featured_image:media(id, storage_path, alt)")
+      .select("id, title, slug, excerpt, sections_html, author_id, featured_image_id, featured_image:media!featured_image_id(id, storage_path, alt), body_image_id, body_image:media!body_image_id(id, storage_path, alt)")
       .eq("id", id)
       .maybeSingle(),
   ]);
@@ -36,6 +36,8 @@ export default async function AdminBlogEditPage({ params }: { params: Promise<{ 
 
   const featuredImageRaw = post.featured_image as unknown;
   const featuredImage = Array.isArray(featuredImageRaw) ? featuredImageRaw[0] ?? null : featuredImageRaw ?? null;
+  const bodyImageRaw = post.body_image as unknown;
+  const bodyImage = Array.isArray(bodyImageRaw) ? bodyImageRaw[0] ?? null : bodyImageRaw ?? null;
 
   const editablePost: EditableBlogPost = {
     id: post.id,
@@ -46,6 +48,8 @@ export default async function AdminBlogEditPage({ params }: { params: Promise<{ 
     author_id: post.author_id,
     featured_image_id: post.featured_image_id,
     featured_image: featuredImage as EditableBlogPost["featured_image"],
+    body_image_id: post.body_image_id,
+    body_image: bodyImage as EditableBlogPost["body_image"],
   };
 
   return (

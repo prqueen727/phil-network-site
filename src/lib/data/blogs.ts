@@ -20,7 +20,7 @@ export async function getPublishedBlogs(limit?: number): Promise<MediaListItem[]
   const supabase = supabasePublic();
   let query = supabase
     .from("blogs")
-    .select("id, title, slug, excerpt, published_at, featured_image:media(storage_path, alt)")
+    .select("id, title, slug, excerpt, published_at, featured_image:media!featured_image_id(storage_path, alt)")
     .eq("status", "published")
     .order("published_at", { ascending: false });
   if (limit) query = query.limit(limit);
@@ -36,7 +36,7 @@ export async function getPublishedBlogsPage(page: number, pageSize: number): Pro
   const to = from + pageSize - 1;
   const { data, error, count } = await supabase
     .from("blogs")
-    .select("id, title, slug, excerpt, published_at, featured_image:media(storage_path, alt)", { count: "exact" })
+    .select("id, title, slug, excerpt, published_at, featured_image:media!featured_image_id(storage_path, alt)", { count: "exact" })
     .eq("status", "published")
     .order("published_at", { ascending: false })
     .range(from, to);
@@ -48,7 +48,7 @@ export async function getPublishedBlogBySlug(slug: string) {
   const supabase = supabasePublic();
   const { data, error } = await supabase
     .from("blogs")
-    .select("*, featured_image:media(storage_path, alt), author:staff(name, job_title, slug, bio, specialty, alumni_of, career, photo_url)")
+    .select("*, featured_image:media!featured_image_id(storage_path, alt), body_image:media!body_image_id(storage_path, alt), author:staff(name, job_title, slug, bio, specialty, alumni_of, career, photo_url)")
     .eq("status", "published")
     .eq("slug", slug)
     .maybeSingle();
