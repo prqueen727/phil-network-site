@@ -109,7 +109,7 @@ em { color: var(--brand); font-style: normal; }
 .internal-inner { margin: 0 auto; max-width: 980px; padding-top: 80px; }
 .back-link { display: inline-block; font-size: 12px; margin-bottom: 120px; }
 .internal-page h1, .admin-panel h1 { color: var(--ink); font-family: Georgia, serif; font-size: clamp(45px, 7vw, 88px); font-weight: 400; line-height: 1.08; margin: 25px 0; }
-.internal-lede { font-size: 18px; line-height: 1.9; max-width: 560px; }
+.internal-lede { font-size: 18px; line-height: 1.9; max-width: 560px; text-wrap: pretty; }
 .internal-rule { border-top: 1px solid var(--line); margin: 80px 0 25px; }
 .internal-note { color: #756b6d; font-size: 13px; margin-bottom: 35px; }
 .admin-page { align-items: center; background: var(--brand); display: flex; justify-content: center; }
