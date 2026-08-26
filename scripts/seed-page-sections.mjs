@@ -176,6 +176,43 @@ async function seedPage({ slug, title, eyebrow, heroTitle, heroIntro, sections }
   console.log(`[${slug}] site_pages 1행 + page_sections ${rows.length}행 시딩 완료`);
 }
 
+// ── home ─────────────────────────────────────────────────────────────────
+// 홈은 섹션마다 레이아웃이 전부 달라(히어로/트러스트/진료/지점/미디어) about처럼
+// 자유형 섹션 나열로 렌더링하지 않는다. src/app/page.tsx가 kind로 골라 텍스트만
+// 뽑아 쓰고, 마크업·이미지·카드 개수는 그대로 코드에 둔다.
+const homeSections = [
+  {
+    kind: "cards",
+    heading: null,
+    data: {
+      columns: 3,
+      items: [
+        { title: "비수술 척추·관절 치료" },
+        { title: "통합 면역·암 치료" },
+        { title: "수술 후 재활치료" },
+        { title: "교통사고 후유증" },
+        { title: "뇌건강센터" },
+        { title: "산업재해" },
+      ],
+    },
+  },
+  {
+    kind: "text",
+    heading: "필한방병원\n지점 안내",
+    data: { paragraphs: [] },
+  },
+  {
+    kind: "text",
+    heading: "필한방병원\n의료진 칼럼",
+    data: { paragraphs: ["필한방병원 의료진이 전하는 건강 이야기"] },
+  },
+  {
+    kind: "text",
+    heading: null,
+    data: { paragraphs: ["2026년 8월 기준 · 필한방병원 네트워크 공식 데이터"] },
+  },
+];
+
 async function main() {
   const directorSections = await buildDirectorSections();
 
@@ -195,6 +232,15 @@ async function main() {
     heroTitle: "윤제필\n병원장",
     heroIntro: directorIntro,
     sections: directorSections,
+  });
+
+  await seedPage({
+    slug: "home",
+    title: "메인 홈",
+    eyebrow: "PHIL NETWORK",
+    heroTitle: "필한방병원 네트워크\n대전·청주·성동·충무로",
+    heroIntro: "전문의 중심의 글로벌 스탠다드 한·양방 협진시스템",
+    sections: homeSections,
   });
 
   console.log("완료.");

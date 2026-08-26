@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { supabaseServerSession } from "@/lib/supabase/server";
 
 const SITE_PATHS: Record<string, string> = {
+  home: "/",
   about: "/about",
   director: "/network/director",
 };

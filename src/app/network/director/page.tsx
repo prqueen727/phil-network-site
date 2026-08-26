@@ -9,6 +9,9 @@ const FALLBACK_EYEBROW = "FOUNDER & DIRECTOR";
 const FALLBACK_HERO_TITLE = "윤제필\n병원장";
 const FALLBACK_INTRO = "필한방병원 네트워크를 시작한 대표자의 설립 철학과 진료에 대한 생각을 소개합니다.";
 
+// 관리자페이지 저장이 재배포 없이 바로 반영되도록 매 요청마다 재생성한다.
+export const revalidate = 0;
+
 export default async function DirectorPage() {
   const [director, page] = await Promise.all([
     getStaffBySlug("yoon-jepil"),

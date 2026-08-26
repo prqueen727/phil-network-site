@@ -8,6 +8,9 @@ const FALLBACK_EYEBROW = "ABOUT PHIL";
 const FALLBACK_HERO_TITLE = "필한방병원\n네트워크 소개";
 const FALLBACK_INTRO = "대전 본원을 중심으로 청주, 성동, 충무로를 연결하며 한·양방 협진의 기준을 이어갑니다.";
 
+// 관리자페이지 저장이 재배포 없이 바로 반영되도록 매 요청마다 재생성한다.
+export const revalidate = 0;
+
 export default async function AboutPage() {
   const [overviewImage, page] = await Promise.all([
     getPageImage("about_overview"),

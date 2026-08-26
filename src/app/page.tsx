@@ -6,7 +6,22 @@ import { CountUp } from "@/components/CountUp";
 import { getBranches } from "@/lib/data/branches";
 import { getPublishedBlogs } from "@/lib/data/blogs";
 import { getHeadlineStats, getPageImage } from "@/lib/data/business";
+import { getSitePage } from "@/lib/data/pages";
+import { heroTitleNodes } from "@/components/HeroTitle";
 import { BedDouble, Hand, PhoneCall, Stethoscope } from "lucide-react";
+
+// site_pages/page_sections("home")가 아직 시딩되지 않았을 때의 폴백 — scripts/seed-page-sections.mjs 참고.
+const FALLBACK_EYEBROW = "PHIL NETWORK";
+const FALLBACK_HERO_TITLE = "필한방병원 네트워크\n대전·청주·성동·충무로";
+const FALLBACK_TAGLINE = "전문의 중심의 글로벌 스탠다드 한·양방 협진시스템";
+const FALLBACK_BRANCH_HEADING = "필한방병원\n지점 안내";
+const FALLBACK_MEDIA_HEADING = "필한방병원\n의료진 칼럼";
+const FALLBACK_MEDIA_SUBCOPY = "필한방병원 의료진이 전하는 건강 이야기";
+const FALLBACK_TRUST_NOTE = "2026년 8월 기준 · 필한방병원 네트워크 공식 데이터";
+
+// 관리자페이지에서 콘텐츠를 저장해도 재배포 전까지 반영이 안 되는 걸 막기 위해 매 요청마다 재생성한다
+// (Supabase 호출은 Next가 request-time API로 인식하지 못해 기본값이 정적 프리렌더로 굳는다).
+export const revalidate = 0;
 
 const metricIcons: Record<string, typeof Stethoscope> = {
   외래환자: Stethoscope,
@@ -26,12 +41,21 @@ const careCards: [string, string, string][] = [
 const CARE_IMAGE_KEYS = ["care_01", "care_02", "care_03", "care_04", "care_05", "care_06"];
 
 export default async function Home() {
-  const [branches, posts, headlineStats, careImages] = await Promise.all([
+  const [branches, posts, headlineStats, careImages, page] = await Promise.all([
     getBranches(),
     getPublishedBlogs(4),
     getHeadlineStats(),
     Promise.all(CARE_IMAGE_KEYS.map((key) => getPageImage(key))),
+    getSitePage("home"),
   ]);
+
+  const sections = (page?.sections ?? []).filter((s) => s.is_visible);
+  const cardTitles = sections.find((s) => s.kind === "cards")?.data.items?.map((item) => item.title) ?? [];
+  const textSections = sections.filter((s) => s.kind === "text");
+  const branchHeading = textSections[0]?.heading || FALLBACK_BRANCH_HEADING;
+  const mediaHeading = textSections[1]?.heading || FALLBACK_MEDIA_HEADING;
+  const mediaSubcopy = textSections[1]?.data.paragraphs?.[0] || FALLBACK_MEDIA_SUBCOPY;
+  const trustNote = textSections[2]?.data.paragraphs?.[0] || FALLBACK_TRUST_NOTE;
 
   return (
     <div className="site-shell">
@@ -41,9 +65,9 @@ export default async function Home() {
           <div className="hero-network-bg" role="img" aria-label="필한방병원 네트워크 의료진 단체사진과 대전·청주·성동·충무로를 잇는 네트워크 지도" />
           <div className="hero-network-overlay" />
           <div className="hero-copy">
-            <p className="eyebrow">PHIL NETWORK</p>
-            <p className="hero-lede hero-tagline">전문의 중심의 글로벌 스탠다드 한·양방 협진시스템</p>
-            <h1>필한방병원 네트워크<br /><em>대전·청주·성동·충무로</em></h1>
+            <p className="eyebrow">{page?.eyebrow || FALLBACK_EYEBROW}</p>
+            <p className="hero-lede hero-tagline">{page?.hero_intro || FALLBACK_TAGLINE}</p>
+            <h1>{heroTitleNodes(page?.hero_title || FALLBACK_HERO_TITLE)}</h1>
             <div className="hero-actions">
               <a className="button button-dark" href="/about">네트워크 알아보기 <span>↗</span></a>
               <a className="text-link" href="/branches">지점 선택 <span>→</span></a>
@@ -66,7 +90,7 @@ export default async function Home() {
               );
             })}
           </div>
-          <p className="metric-note">2026년 8월 기준 · 필한방병원 네트워크 공식 데이터</p>
+          <p className="metric-note">{trustNote}</p>
         </section>
 
         <section className="care-section section-wrap">
@@ -77,10 +101,10 @@ export default async function Home() {
             </div>
           </div>
           <div className="care-grid image-care-grid">
-            {careCards.map(([number, title, fallbackImage], index) => (
+            {careCards.map(([number, fallbackTitle, fallbackImage], index) => (
               <Reveal as="div" className="care-card image-care-card" delay={(index + 1) * 100} key={number}>
                 <span className="care-image" style={{ backgroundImage: `url(${careImages[index]?.url ?? fallbackImage})` }} />
-                <div className="care-card-label"><h3>{title}</h3><b>+</b></div>
+                <div className="care-card-label"><h3>{cardTitles[index] || fallbackTitle}</h3><b>+</b></div>
               </Reveal>
             ))}
           </div>
@@ -90,7 +114,7 @@ export default async function Home() {
           <div className="section-heading split-heading">
             <div>
               <div className="section-kicker"><span>03</span><span>PHIL LOCATIONS</span></div>
-              <h2>필한방병원<br /><em>지점 안내</em></h2>
+              <h2>{heroTitleNodes(branchHeading)}</h2>
             </div>
           </div>
           <MainBranchCards branches={branches} />
@@ -100,9 +124,9 @@ export default async function Home() {
           <div className="section-heading">
             <div>
               <div className="section-kicker"><span>04</span><span>PHIL MEDIA</span></div>
-              <h2>필한방병원<br /><em>의료진 칼럼</em></h2>
+              <h2>{heroTitleNodes(mediaHeading)}</h2>
             </div>
-            <p className="body-copy">필한방병원 의료진이 전하는 건강 이야기</p>
+            <p className="body-copy">{mediaSubcopy}</p>
           </div>
           <MediaCarousel posts={posts} />
         </section>
