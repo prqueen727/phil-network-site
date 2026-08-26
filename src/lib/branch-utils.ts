@@ -37,6 +37,7 @@ export type Branch = {
   opening_hours: OpeningHoursEntry[];
   price_info: string | null;
   naver_place_url: string | null;
+  website_url: string | null;
   sort_order: number;
   director: BranchDirector | null;
 };

@@ -12,6 +12,7 @@ export async function SiteHeader({ overlay = false }: { overlay?: boolean }) {
       <nav className="main-nav" aria-label="주 메뉴">
         <div className="nav-group"><a href="/about">병원소개</a><div className="mega-menu"><a href="/about">필한방병원 소개</a><a href="/network/director">윤제필 병원장</a></div></div>
         <a href="/branches">지점 안내</a>
+        <div className="nav-group"><a href="/branches">지점 바로가기</a><div className="mega-menu">{branches.map((branch) => branch.website_url && <a href={branch.website_url} target="_blank" rel="noreferrer" key={branch.slug}>{branch.name}</a>)}</div></div>
         <a href="/media">미디어게시판</a>
       </nav>
     </header>

@@ -36,6 +36,9 @@ export function MainBranchCards({ branches }: { branches: Branch[] }) {
               {branch.naver_place_url && (
                 <a href={branch.naver_place_url} target="_blank" rel="noreferrer">네이버 플레이스</a>
               )}
+              {branch.website_url && (
+                <a href={branch.website_url} target="_blank" rel="noreferrer">홈페이지</a>
+              )}
             </div>
           </div>
           <div className="main-branch-map">

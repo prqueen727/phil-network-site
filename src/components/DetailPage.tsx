@@ -36,6 +36,9 @@ export function BranchDetail({ branch }: { branch: Branch }) {
           {branch.naver_place_url && (
             <p><a className="text-link" href={branch.naver_place_url} target="_blank" rel="noreferrer">네이버플레이스에서 보기 →</a></p>
           )}
+          {branch.website_url && (
+            <p><a className="text-link" href={branch.website_url} target="_blank" rel="noreferrer">{branch.name} 홈페이지 →</a></p>
+          )}
         </div>
         <div>
           <span>HOURS</span>
