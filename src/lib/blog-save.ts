@@ -24,14 +24,19 @@ function escapeHtml(text: string): string {
   return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-/** 관리자가 입력한 plain text(줄바꿈으로 문단 구분)를 이스케이프 후 <p> 묶음 html로 변환 */
+/** 이스케이프된 텍스트 안의 **굵게** 표시만 <strong>으로 바꾼다. escapeHtml 이후에만 호출할 것(이스케이프 전이면 임의 HTML이 섞여 들어온다). */
+function applyBold(escapedText: string): string {
+  return escapedText.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+}
+
+/** 관리자가 입력한 plain text(줄바꿈으로 문단 구분, **굵게** 지원)를 이스케이프 후 <p> 묶음 html로 변환 */
 export function sectionsToHtml(sections: SectionInput[]): { heading: string; html: string }[] {
   return sections.map((s) => {
     const html = (s.body ?? "")
       .split(/\r?\n/)
       .map((line) => line.trim())
       .filter(Boolean)
-      .map((line) => `<p>${escapeHtml(line)}</p>`)
+      .map((line) => `<p>${applyBold(escapeHtml(line))}</p>`)
       .join("");
     return { heading: (s.heading ?? "").trim(), html };
   });

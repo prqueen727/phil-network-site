@@ -6,6 +6,9 @@ import type { Staff } from "@/lib/data/staff";
 
 type FeaturedImage = { id: string; storage_path: string | null; alt: string | null } | null;
 
+// Vercel 서버리스 함수 요청 본문 한도(약 4.5MB)보다 여유를 두고 잡은 클라이언트 사전 검사 값.
+const MAX_UPLOAD_BYTES = 4 * 1024 * 1024;
+
 export type EditableBlogPost = {
   id: string;
   title: string;
@@ -25,6 +28,7 @@ function htmlToPlainText(html: string): string {
     .split(/<\/p>/gi)
     .map((s) => s.replace(/<p[^>]*>/gi, "").trim())
     .filter(Boolean)
+    .map((s) => s.replace(/<\/?strong>/gi, "**"))
     .map((s) => s.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&"))
     .join("\n");
 }
@@ -39,6 +43,33 @@ function initialSections(post: EditableBlogPost | null): SectionBlock[] {
   return [{ heading: "", body: "" }];
 }
 
+/** "## 소제목" 줄을 기준으로 붙여넣은 글 전체를 섹션 배열로 나눈다. 그런 줄이 없으면 통째로 섹션 1개. */
+function parseDraftIntoSections(text: string): SectionBlock[] {
+  const lines = text.split(/\r?\n/);
+  const sections: SectionBlock[] = [];
+  let heading = "";
+  let bodyLines: string[] = [];
+
+  function flush() {
+    const body = bodyLines.join("\n").trim();
+    if (heading || body) sections.push({ heading, body });
+  }
+
+  for (const line of lines) {
+    const match = line.match(/^#{1,4}\s+(.+)$/);
+    if (match) {
+      flush();
+      heading = match[1].trim();
+      bodyLines = [];
+    } else {
+      bodyLines.push(line);
+    }
+  }
+  flush();
+
+  return sections.length > 0 ? sections : [{ heading: "", body: text.trim() }];
+}
+
 export function BlogEditor({ staff, post }: { staff: Staff[]; post: EditableBlogPost | null }) {
   const router = useRouter();
 
@@ -47,6 +78,7 @@ export function BlogEditor({ staff, post }: { staff: Staff[]; post: EditableBlog
   const [excerpt, setExcerpt] = useState(post?.excerpt ?? "");
   const [authorId, setAuthorId] = useState(post?.author_id ?? staff[0]?.id ?? "");
   const [sections, setSections] = useState<SectionBlock[]>(initialSections(post));
+  const [draftText, setDraftText] = useState("");
 
   const [imageMediaId, setImageMediaId] = useState<string | null>(post?.featured_image_id ?? null);
   const [imageUrl, setImageUrl] = useState<string | null>(post?.featured_image?.storage_path ?? null);
@@ -68,6 +100,16 @@ export function BlogEditor({ staff, post }: { staff: Staff[]; post: EditableBlog
   function removeSection(index: number) {
     setSections((prev) => prev.filter((_, i) => i !== index));
   }
+  function importDraft() {
+    if (!draftText.trim()) return;
+    const hasExistingContent = sections.some((s) => s.heading.trim() || s.body.trim());
+    if (hasExistingContent && !window.confirm("기존 섹션 내용을 지우고 붙여넣은 글로 바꿀까요?")) {
+      return;
+    }
+    setSections(parseDraftIntoSections(draftText));
+    setDraftText("");
+  }
+
   function moveSection(index: number, direction: "up" | "down") {
     setSections((prev) => {
       const next = [...prev];
@@ -89,22 +131,33 @@ export function BlogEditor({ staff, post }: { staff: Staff[]; post: EditableBlog
       setImageMsg("대체텍스트(alt)를 입력해 주세요.");
       return;
     }
+    // Vercel 서버리스 함수는 요청 본문이 약 4.5MB를 넘으면 거부한다 — 미리 걸러서
+    // "업로드 중…"에 멈춰있는 대신 바로 알려준다.
+    if (file.size > MAX_UPLOAD_BYTES) {
+      setImageMsg(`파일이 너무 큽니다 (${(file.size / 1024 / 1024).toFixed(1)}MB). 4MB 이하로 압축한 뒤 다시 시도해 주세요.`);
+      return;
+    }
     setImageUploading(true);
     setImageMsg(null);
     const formData = new FormData();
     formData.set("file", file);
     formData.set("alt", altValue);
-    const res = await fetch("/api/admin/blogs/upload-image", { method: "POST", body: formData });
-    const json = await res.json();
-    setImageUploading(false);
-    if (!json.ok) {
-      setImageMsg(json.error ?? "업로드에 실패했습니다.");
-      return;
+    try {
+      const res = await fetch("/api/admin/blogs/upload-image", { method: "POST", body: formData });
+      const json = await res.json();
+      if (!json.ok) {
+        setImageMsg(json.error ?? "업로드에 실패했습니다.");
+        return;
+      }
+      setImageMediaId(json.mediaId);
+      setImageUrl(json.url);
+      setPublishBlocked(null);
+      setImageMsg("업로드 완료.");
+    } catch {
+      setImageMsg("업로드에 실패했습니다. 파일 용량이 너무 크거나 네트워크 문제일 수 있습니다.");
+    } finally {
+      setImageUploading(false);
     }
-    setImageMediaId(json.mediaId);
-    setImageUrl(json.url);
-    setPublishBlocked(null);
-    setImageMsg("업로드 완료.");
   }
 
   async function save(publish: boolean) {
@@ -209,6 +262,23 @@ export function BlogEditor({ staff, post }: { staff: Staff[]; post: EditableBlog
         </button>
       </div>
 
+      <div className="admin-form admin-section-card">
+        <b>AI 초안 붙여넣기</b>
+        <p style={{ fontSize: 13, color: "#756b6d", margin: "4px 0 12px" }}>
+          AI가 만든 글 전체를 통째로 붙여넣으세요. <code>## 소제목</code>처럼 쓴 줄은 자동으로 섹션 소제목이 되고, 빈 줄로
+          구분된 문단은 그대로 유지됩니다. 아래 섹션에서 <code>**이렇게**</code> 쓰면 굵은 글씨로 표시됩니다.
+        </p>
+        <textarea
+          rows={8}
+          value={draftText}
+          onChange={(e) => setDraftText(e.target.value)}
+          placeholder={"## 원인\n허리디스크는...\n\n## 치료법\n..."}
+        />
+        <button type="button" className="admin-mini-button" disabled={!draftText.trim()} onClick={importDraft}>
+          섹션으로 나누기
+        </button>
+      </div>
+
       <h2 style={{ fontSize: 18, margin: "40px 0 16px" }}>본문 섹션 ({sections.length}개)</h2>
 
       {sections.map((section, idx) => (
@@ -229,7 +299,7 @@ export function BlogEditor({ staff, post }: { staff: Staff[]; post: EditableBlog
             <input value={section.heading} onChange={(e) => updateSection(idx, { heading: e.target.value })} />
           </label>
           <label>
-            본문 (Enter로 줄바꿈하면 문단이 나뉩니다)
+            본문 (Enter로 줄바꿈하면 문단이 나뉩니다, <code>**텍스트**</code>는 굵게 표시됩니다)
             <textarea rows={6} value={section.body} onChange={(e) => updateSection(idx, { body: e.target.value })} />
           </label>
           <div className="admin-section-card-foot">
