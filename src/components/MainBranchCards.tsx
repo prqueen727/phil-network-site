@@ -10,7 +10,7 @@ export function MainBranchCards({ branches }: { branches: Branch[] }) {
         return (
         <Reveal as="article" className="main-branch-card" delay={index * 100} key={branch.slug}>
           <div className="main-branch-copy">
-            <span className="main-branch-ci" aria-hidden="true">必</span>
+            <span className={`main-branch-ci ${accentClass ?? ""}`} aria-hidden="true" />
             <p className="branch-number">0{index + 1} / PHIL LOCATION</p>
             <h3>{branch.name}</h3>
 

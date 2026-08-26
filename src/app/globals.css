@@ -164,7 +164,9 @@ em { color: var(--brand); font-style: normal; }
 .main-branch-card { background: #fff; display: grid; grid-template-columns: minmax(0, 1fr) 42%; min-height: 360px; }
 .main-branch-map iframe { border: 0; display: block; height: 100%; min-height: 360px; width: 100%; }
 .main-branch-copy { padding: 46px 50px; position: relative; }
-.main-branch-ci { color: var(--brand); font-family: Georgia, serif; font-size: 110px; line-height: 1; opacity: .06; pointer-events: none; position: absolute; right: 30px; top: 10px; }
+.main-branch-ci { -webkit-mask-image: url('/ci-swirl.png'); mask-image: url('/ci-swirl.png'); -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: top right; mask-position: top right; background-color: var(--brand); height: 128px; opacity: .1; pointer-events: none; position: absolute; right: 30px; top: 10px; width: 140px; }
+.main-branch-ci.branch-accent-teal { background-color: #7fcad4; }
+.main-branch-ci.branch-accent-orange { background-color: #ffb59b; }
 .branch-number { color: var(--brand); font-size: 12px; font-weight: 700; letter-spacing: 1.5px; }
 .main-branch-copy h3 { font-size: 28px; margin: 16px 0 8px; }
 .main-branch-field { border-top: 1px solid var(--line); padding: 20px 0; }
