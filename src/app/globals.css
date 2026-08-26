@@ -278,6 +278,9 @@ em { color: var(--brand); font-style: normal; }
 @media (max-width: 500px) { .board-list { grid-template-columns: 1fr; } }
 
 /* ── 지점 상세(/branches/[slug]) 병원장 카드 + 지도 ── */
+.branch-intro { background: #fff; margin-top: 24px; padding: 35px 45px; }
+.branch-intro .body-copy { color: #4a4344; margin: 16px 0 0; }
+.branch-intro .body-copy + .body-copy { margin-top: 14px; }
 .branch-director-card { background: #fff; margin-top: 1px; padding: 35px 45px; }
 .branch-director-card h2 { font-size: 24px; margin: 16px 0 8px; }
 .branch-director-card p { color: #756b6d; font-size: 13px; margin: 0 0 14px; }

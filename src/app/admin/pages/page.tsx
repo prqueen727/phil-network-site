@@ -5,6 +5,10 @@ const SITE_PATHS: Record<string, string> = {
   home: "/",
   about: "/about",
   director: "/network/director",
+  "branch-daejeon": "/branches/daejeon",
+  "branch-cheongju": "/branches/cheongju",
+  "branch-seongdong": "/branches/seongdong",
+  "branch-chungmuro": "/branches/chungmuro",
 };
 
 export default async function AdminPagesListPage() {
