@@ -96,8 +96,8 @@ export default async function Home() {
         <section className="care-section section-wrap">
           <div className="section-heading">
             <div>
-              <div className="section-kicker"><span>02</span><span>CARE PROGRAM</span></div>
-              <h2>주요 <em>진료 분야</em></h2>
+              <div className="section-kicker"><span>02</span><span>MAIN CLINIC</span></div>
+              <h2>주요 <em>클리닉</em></h2>
             </div>
           </div>
           <div className="care-grid image-care-grid">
