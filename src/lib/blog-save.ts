@@ -34,7 +34,9 @@ export function sectionsToHtml(sections: SectionInput[]): { heading: string; htm
   return sections.map((s) => {
     const html = (s.body ?? "")
       .split(/\r?\n/)
-      .map((line) => line.trim())
+      // "## 소제목" 같은 마크다운 헤더 기호가 섹션 자동분리 없이 그대로 붙여넣어진 경우,
+      // 화면에 "##"가 글자 그대로 노출되지 않도록 앞머리 기호만 제거하고 일반 문단으로 표시한다.
+      .map((line) => line.trim().replace(/^#{1,4}\s*/, "").trim())
       .filter(Boolean)
       .map((line) => `<p>${applyBold(escapeHtml(line))}</p>`)
       .join("");
