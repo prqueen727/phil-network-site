@@ -56,7 +56,7 @@ function parseDraftIntoSections(text: string): SectionBlock[] {
   }
 
   for (const line of lines) {
-    const match = line.match(/^#{1,4}\s+(.+)$/);
+    const match = line.match(/^#{1,4}\s*(.+)$/);
     if (match) {
       flush();
       heading = match[1].trim();
