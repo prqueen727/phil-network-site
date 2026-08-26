@@ -3,6 +3,9 @@ import { notFound } from "next/navigation";
 import { BranchPage } from "@/components/BranchPage";
 import { getBranches, getBranchBySlug } from "@/lib/data/branches";
 
+// branches.website_url 등 DB 값이 바뀌어도 재배포 전까지 반영 안 되는 걸 막기 위해 매 요청마다 재생성한다.
+export const revalidate = 0;
+
 export async function generateStaticParams() {
   const branches = await getBranches();
   return branches.map((branch) => ({ slug: branch.slug }));
