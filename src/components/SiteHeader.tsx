@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getBranches } from "@/lib/data/branches";
 import { shortLocality } from "@/lib/branch-utils";
+import { MobileNav } from "@/components/MobileNav";
 
 /** 지점 전화번호·링크는 Supabase branches 테이블에서 SSR로 조회한다(하드코딩 금지 — build.md STEP3). */
 export async function SiteHeader({ overlay = false }: { overlay?: boolean }) {
@@ -15,6 +16,7 @@ export async function SiteHeader({ overlay = false }: { overlay?: boolean }) {
         <div className="nav-group"><a href="/branches">지점 바로가기</a><div className="mega-menu">{branches.map((branch) => branch.website_url && <a href={branch.website_url} target="_blank" rel="noreferrer" key={branch.slug}>{branch.name}</a>)}</div></div>
         <a href="/media">미디어게시판</a>
       </nav>
+      <MobileNav branches={branches} />
     </header>
   </>;
 }
