@@ -66,6 +66,17 @@ export function shortLocality(branch: Pick<Branch, "slug" | "address_locality" |
   return SHORT_LOCALITY[branch.slug] ?? branch.address_locality ?? branch.name;
 }
 
+// 지점별 고유 브랜드 색상 — 네이버 플레이스·홈페이지 버튼에 사용(대전은 기본 브랜드색 유지).
+const BRANCH_ACCENT_CLASS: Record<string, string> = {
+  cheongju: "branch-accent-teal",
+  seongdong: "branch-accent-teal",
+  chungmuro: "branch-accent-orange",
+};
+
+export function branchAccentClass(slug: string): string | undefined {
+  return BRANCH_ACCENT_CLASS[slug];
+}
+
 /** 주소 문자열 기반 지도 임베드 URL (좌표가 있으면 좌표 우선). */
 export function branchMapEmbedUrl(branch: Pick<Branch, "street_address" | "latitude" | "longitude">): string {
   const query = branch.latitude != null && branch.longitude != null

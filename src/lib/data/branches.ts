@@ -2,7 +2,7 @@ import { supabasePublic } from "@/lib/supabase/server";
 import type { Branch } from "@/lib/branch-utils";
 
 export type { Branch, BranchDirector, OpeningHoursEntry } from "@/lib/branch-utils";
-export { branchMapEmbedUrl, formatOpeningHours, formatOpeningHoursLines } from "@/lib/branch-utils";
+export { branchAccentClass, branchMapEmbedUrl, formatOpeningHours, formatOpeningHoursLines } from "@/lib/branch-utils";
 
 const BRANCH_SELECT = "*, director:staff(id, name, slug, job_title)";
 

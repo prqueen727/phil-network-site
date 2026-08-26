@@ -177,6 +177,10 @@ em { color: var(--brand); font-style: normal; }
 .main-branch-actions a { background: var(--brand); border-radius: 100px; color: #fff; font-size: 13px; font-weight: 700; padding: 14px 24px; transition: background .2s; }
 .main-branch-actions a:hover { background: var(--brand-dark); }
 .main-branch-actions a[href^="tel:"] { background: var(--secondary-dark); }
+.main-branch-actions a.branch-accent-teal { background: #0096a9; }
+.main-branch-actions a.branch-accent-teal:hover { background: #007986; }
+.main-branch-actions a.branch-accent-orange { background: #ff6c37; }
+.main-branch-actions a.branch-accent-orange:hover { background: #d9551f; }
 .internal-page h1, .internal-page h2, .internal-page h3 { font-family: "Noto Sans KR", "Pretendard", "Malgun Gothic", sans-serif; letter-spacing: 0; }
 .care-detail-hero { align-items: stretch; background: #fff; display: grid; grid-template-columns: 1fr 1fr; margin: 58px 0 0; min-height: 360px; }.care-detail-hero > div:first-child { align-self: center; padding: 45px; }.care-detail-hero h2 { font-size: 42px; margin: 22px 0 15px; }.care-detail-hero p:not(.care-label) { color: #756b6d; font-size: 14px; line-height: 1.8; max-width: 390px; }.care-detail-image { background: linear-gradient(135deg, rgba(118,45,73,.12), rgba(36,32,33,.18)), url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=85") center/cover; min-height: 360px; }.treatment-grid { display: grid; gap: 32px; grid-template-columns: repeat(3, 1fr); margin-top: 44px; }.treatment-grid article { background: #fff; }.treatment-image { background-position: center; background-size: cover; height: 180px; }.treatment-copy { padding: 22px; }.treatment-copy > span { color: var(--brand); font-size: 11px; font-weight: 700; }.treatment-copy h3 { font-size: 18px; margin: 12px 0; }.treatment-copy p { color: #756b6d; font-size: 12px; line-height: 1.7; margin: 0; }
 @media (max-width: 800px) { .image-care-grid { grid-template-columns: repeat(2, 1fr); }.care-image { height: 180px; }.media-section { display: block; }.column-grid { margin-top: 45px; }.column-image { height: 140px; } }
