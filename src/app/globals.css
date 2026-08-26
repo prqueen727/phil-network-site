@@ -35,7 +35,7 @@ a { color: inherit; text-decoration: none; }
 .branch-strip { background: var(--brand); color: white; font-size: 11px; }
 .branch-strip-inner { align-items: center; display: flex; justify-content: space-between; padding: 9px max(34px, calc((100% - 1280px) / 2)); }
 .branch-strip-links { display: flex; gap: 24px; }
-.branch-strip a { opacity: .9; }
+.branch-strip-links span { opacity: .9; }
 .branch-strip small { margin-left: 7px; opacity: .65; }
 .brand { align-items: center; display: flex; gap: 12px; }
 .brand-logo { height: auto; max-width: 240px; width: 240px; }

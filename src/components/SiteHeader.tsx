@@ -6,7 +6,7 @@ import { shortLocality } from "@/lib/branch-utils";
 export async function SiteHeader({ overlay = false }: { overlay?: boolean }) {
   const branches = await getBranches();
   return <>
-    {!overlay && <div className="branch-strip"><div className="branch-strip-inner"><span>필한방병원 네트워크</span><div className="branch-strip-links">{branches.map((branch) => <a href={`/branches/${branch.slug}`} key={branch.slug}>{shortLocality(branch)} <small>{branch.telephone}</small></a>)}</div></div></div>}
+    {!overlay && <div className="branch-strip"><div className="branch-strip-inner"><span>필한방병원 네트워크</span><div className="branch-strip-links">{branches.map((branch) => <span key={branch.slug}>{shortLocality(branch)} <small>{branch.telephone}</small></span>)}</div></div></div>}
     <header className={`site-header benchmark-header${overlay ? " overlay-header" : ""}`}>
       <a className="brand" href="/" aria-label="필한방병원 네트워크 홈"><Image className="brand-logo" src="/hi_phil_03-제일많이씀-[변환됨].png" alt="필한방병원" width={300} height={91} priority /></a>
       <nav className="main-nav" aria-label="주 메뉴">
