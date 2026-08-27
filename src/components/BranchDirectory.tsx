@@ -26,10 +26,17 @@ export function BranchDirectory({ branches }: { branches: Branch[] }) {
           </button>
         ))}
       </div>
-      <div className={`branch-map-panel${content ? " has-photo" : ""}`}>
+      <div className="branch-map-panel">
         <div className="branch-map-copy">
           <p className="care-label">{shortLocality(branch)} / PHIL LOCATION</p>
-          <h2>{branch.name}</h2>
+          <div className="branch-title-row">
+            <h2>{branch.name}</h2>
+            {content && (
+              <div className="branch-photo-thumb">
+                <Image src={content.photo.url} alt={content.photo.alt} fill sizes="140px" style={{ objectFit: "cover" }} />
+              </div>
+            )}
+          </div>
           <p>{branch.street_address}</p>
           <a href={`tel:${branch.telephone}`}>{branch.telephone}</a>
           {content && (
@@ -63,11 +70,6 @@ export function BranchDirectory({ branches }: { branches: Branch[] }) {
             )}
           </dl>
         </div>
-        {content && (
-          <div className="branch-photo">
-            <Image src={content.photo.url} alt={content.photo.alt} fill sizes="(max-width: 800px) 100vw, 35vw" style={{ objectFit: "cover" }} />
-          </div>
-        )}
         <iframe title={`${branch.name} 지도`} src={mapUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
       </div>
     </div>
