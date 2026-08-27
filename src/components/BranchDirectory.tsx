@@ -33,7 +33,7 @@ export function BranchDirectory({ branches }: { branches: Branch[] }) {
             <h2>{branch.name}</h2>
             {content && (
               <div className="branch-photo-thumb">
-                <Image src={content.photo.url} alt={content.photo.alt} fill sizes="140px" style={{ objectFit: "cover" }} />
+                <Image src={content.photo.url} alt={content.photo.alt} fill sizes="(max-width: 500px) 100vw, 400px" style={{ objectFit: "cover" }} />
               </div>
             )}
           </div>
