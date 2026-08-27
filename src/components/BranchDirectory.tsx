@@ -29,14 +29,12 @@ export function BranchDirectory({ branches }: { branches: Branch[] }) {
       <div className="branch-map-panel">
         <div className="branch-map-copy">
           <p className="care-label">{shortLocality(branch)} / PHIL LOCATION</p>
-          <div className="branch-title-row">
-            <h2>{branch.name}</h2>
-            {content && (
-              <div className="branch-photo-thumb">
-                <Image src={content.photo.url} alt={content.photo.alt} fill sizes="(max-width: 500px) 100vw, 400px" style={{ objectFit: "cover" }} />
-              </div>
-            )}
-          </div>
+          <h2>{branch.name}</h2>
+          {content && (
+            <div className="branch-photo-thumb">
+              <Image src={content.photo.url} alt={content.photo.alt} fill sizes="(max-width: 500px) 100vw, 400px" style={{ objectFit: "cover" }} />
+            </div>
+          )}
           <p>{branch.street_address}</p>
           <a href={`tel:${branch.telephone}`}>{branch.telephone}</a>
           {content && (
