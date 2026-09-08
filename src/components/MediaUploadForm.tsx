@@ -35,6 +35,9 @@ const TARGET_OPTIONS = [
   ] },
 ];
 
+// Vercel 서버리스 함수 요청 본문 한도(약 4.5MB)보다 여유를 두고 잡은 클라이언트 사전 검사 값.
+const MAX_UPLOAD_BYTES = 4 * 1024 * 1024;
+
 export function MediaUploadForm() {
   const router = useRouter();
   const fileRef = useRef<HTMLInputElement | null>(null);
@@ -46,23 +49,30 @@ export function MediaUploadForm() {
     const form = e.currentTarget;
     const file = fileRef.current?.files?.[0];
     if (!file) return setMessage({ ok: false, text: "파일을 선택해 주세요." });
+    if (file.size > MAX_UPLOAD_BYTES) {
+      return setMessage({ ok: false, text: `파일이 너무 큽니다 (${(file.size / 1024 / 1024).toFixed(1)}MB). 4MB 이하로 압축한 뒤 다시 시도해 주세요.` });
+    }
 
     setLoading(true);
     setMessage(null);
     const formData = new FormData(form);
     formData.set("file", file);
 
-    const res = await fetch("/api/admin/media/upload", { method: "POST", body: formData });
-    const data = await res.json();
-    setLoading(false);
-
-    if (!data.ok) {
-      setMessage({ ok: false, text: data.error ?? "업로드에 실패했습니다." });
-      return;
+    try {
+      const res = await fetch("/api/admin/media/upload", { method: "POST", body: formData });
+      const data = await res.json();
+      if (!data.ok) {
+        setMessage({ ok: false, text: data.error ?? "업로드에 실패했습니다." });
+        return;
+      }
+      setMessage({ ok: true, text: "업로드 완료. 사이트에 바로 반영됩니다." });
+      form.reset();
+      router.refresh();
+    } catch {
+      setMessage({ ok: false, text: "업로드에 실패했습니다. 파일 용량이 너무 크거나 네트워크 문제일 수 있습니다." });
+    } finally {
+      setLoading(false);
     }
-    setMessage({ ok: true, text: "업로드 완료. 사이트에 바로 반영됩니다." });
-    form.reset();
-    router.refresh();
   }
 
   return (

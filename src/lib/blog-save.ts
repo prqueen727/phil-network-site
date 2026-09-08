@@ -24,14 +24,21 @@ function escapeHtml(text: string): string {
   return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-/** 관리자가 입력한 plain text(줄바꿈으로 문단 구분)를 이스케이프 후 <p> 묶음 html로 변환 */
+/** 이스케이프된 텍스트 안의 **굵게** 표시만 <strong>으로 바꾼다. escapeHtml 이후에만 호출할 것(이스케이프 전이면 임의 HTML이 섞여 들어온다). */
+function applyBold(escapedText: string): string {
+  return escapedText.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+}
+
+/** 관리자가 입력한 plain text(줄바꿈으로 문단 구분, **굵게** 지원)를 이스케이프 후 <p> 묶음 html로 변환 */
 export function sectionsToHtml(sections: SectionInput[]): { heading: string; html: string }[] {
   return sections.map((s) => {
     const html = (s.body ?? "")
       .split(/\r?\n/)
-      .map((line) => line.trim())
+      // "## 소제목" 같은 마크다운 헤더 기호가 섹션 자동분리 없이 그대로 붙여넣어진 경우,
+      // 화면에 "##"가 글자 그대로 노출되지 않도록 앞머리 기호만 제거하고 일반 문단으로 표시한다.
+      .map((line) => line.trim().replace(/^#{1,4}\s*/, "").trim())
       .filter(Boolean)
-      .map((line) => `<p>${escapeHtml(line)}</p>`)
+      .map((line) => `<p>${applyBold(escapeHtml(line))}</p>`)
       .join("");
     return { heading: (s.heading ?? "").trim(), html };
   });
@@ -61,6 +68,8 @@ export interface BuildBlogRowInput {
   sections: SectionInput[];
   authorId: string;
   featuredImageId?: string | null;
+  /** 목록 카드용 대표 이미지와 별개로, 본문 안에 노출되는 이미지 1장(선택). */
+  bodyImageId?: string | null;
   publish: boolean;
   /** 수정 시: 기존 published_at. 이미 발행된 글을 다시 저장할 때 발행 시각을 유지하기 위함(매 저장마다 갱신되지 않게). */
   existingPublishedAt?: string | null;
@@ -73,6 +82,7 @@ export interface BlogRow {
   sections_html: { heading: string; html: string }[];
   structured_data: unknown;
   featured_image_id: string | null;
+  body_image_id: string | null;
   author_id: string;
   status: "draft" | "published";
   published_at: string | null;
@@ -94,11 +104,14 @@ export async function buildBlogRow(sb: SupabaseClient, input: BuildBlogRowInput)
     );
   }
 
-  const [{ data: biz }, { data: staff, error: staffError }, mediaResult] = await Promise.all([
+  const [{ data: biz }, { data: staff, error: staffError }, mediaResult, bodyMediaResult] = await Promise.all([
     sb.from("settings_business").select("*").maybeSingle(),
     sb.from("staff").select("*").eq("id", input.authorId).single(),
     input.featuredImageId
       ? sb.from("media").select("id, storage_path, alt, width, height").eq("id", input.featuredImageId).single()
+      : Promise.resolve({ data: null, error: null } as { data: null; error: null }),
+    input.bodyImageId
+      ? sb.from("media").select("id, storage_path, alt").eq("id", input.bodyImageId).single()
       : Promise.resolve({ data: null, error: null } as { data: null; error: null }),
   ]);
 
@@ -115,6 +128,11 @@ export async function buildBlogRow(sb: SupabaseClient, input: BuildBlogRowInput)
         "대표 이미지에 대체텍스트(alt)가 없습니다. 미디어를 다시 업로드하며 alt를 채운 뒤 저장하세요.",
       );
     }
+  }
+
+  const bodyMediaRow = bodyMediaResult.data as { id: string; storage_path: string | null; alt: string | null } | null;
+  if (input.bodyImageId && !bodyMediaRow) {
+    throw new Error("지정한 본문 이미지를 찾을 수 없습니다.");
   }
 
   const sectionsHtml = sectionsToHtml(input.sections);
@@ -147,6 +165,7 @@ export async function buildBlogRow(sb: SupabaseClient, input: BuildBlogRowInput)
     sections_html: sectionsHtml,
     structured_data: structuredData,
     featured_image_id: input.featuredImageId ?? null,
+    body_image_id: input.bodyImageId ?? null,
     author_id: input.authorId,
     status: input.publish ? "published" : "draft",
     published_at: publishedAt,

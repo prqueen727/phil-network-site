@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { InternalPage } from "@/components/InternalPage";
@@ -5,6 +6,26 @@ import { getPublishedBlogBySlug } from "@/lib/data/blogs";
 import { groupCareer } from "@/lib/data/staff";
 
 type Sections = { heading?: string; html?: string }[];
+
+// build.md STEP 5 검증 #3 — 발행 글은 og:image가 SSR로 나와야 한다(공유 미리보기·GEO 봇용).
+// 대표 이미지 URL은 R2 공개 도메인이라 이미 절대 URL이다.
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPublishedBlogBySlug(slug);
+  if (!post) return {};
+
+  const image = post.featured_image;
+  return {
+    title: post.title,
+    description: post.excerpt || undefined,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt || undefined,
+      type: "article",
+      images: image?.storage_path ? [{ url: image.storage_path, alt: image.alt || post.title }] : undefined,
+    },
+  };
+}
 
 export default async function MediaDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -38,6 +59,13 @@ export default async function MediaDetailPage({ params }: { params: Promise<{ sl
             {post.published_at && <time dateTime={post.published_at}>{new Date(post.published_at).toLocaleDateString("ko-KR")}</time>}
           </p>
         </div>
+
+        {post.body_image?.storage_path && (
+          <div className="article-body-image">
+            {/* 임의 R2 도메인 원본 그대로 노출 — next/image 미사용(다른 공개 페이지의 이미지 렌더링과 동일 패턴) */}
+            <img src={post.body_image.storage_path} alt={post.body_image.alt || post.title} />
+          </div>
+        )}
 
         <div className="article-body">
           {sections.length === 0 ? (

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { InternalPage } from "./InternalPage";
 import type { Branch } from "@/lib/data/branches";
 import { branchMapEmbedUrl, formatOpeningHours } from "@/lib/data/branches";
+import type { SitePage } from "@/lib/data/pages";
 
 export function CareDetail({ title, intro, steps }: { title: string; intro: string; steps: string[] }) {
   const treatmentCards = [
@@ -21,7 +22,12 @@ export function CareDetail({ title, intro, steps }: { title: string; intro: stri
   </InternalPage>;
 }
 
-export function BranchDetail({ branch }: { branch: Branch }) {
+export function BranchDetail({ branch, page }: { branch: Branch; page: SitePage | null }) {
+  const introParagraphs = (page?.sections ?? [])
+    .filter((s) => s.is_visible && s.kind === "text")
+    .flatMap((s) => s.data.paragraphs ?? [])
+    .filter((p) => p.trim());
+
   return (
     <InternalPage
       eyebrow="PHIL LOCATIONS"
@@ -36,6 +42,9 @@ export function BranchDetail({ branch }: { branch: Branch }) {
           {branch.naver_place_url && (
             <p><a className="text-link" href={branch.naver_place_url} target="_blank" rel="noreferrer">네이버플레이스에서 보기 →</a></p>
           )}
+          {branch.website_url && (
+            <p><a className="text-link" href={branch.website_url} target="_blank" rel="noreferrer">{branch.name} 홈페이지 →</a></p>
+          )}
         </div>
         <div>
           <span>HOURS</span>
@@ -44,6 +53,15 @@ export function BranchDetail({ branch }: { branch: Branch }) {
           <p>{branch.price_info ?? "비급여 항목은 전화 문의"}</p>
         </div>
       </div>
+
+      {introParagraphs.length > 0 && (
+        <div className="branch-intro">
+          <span className="care-label">지점 소개</span>
+          {introParagraphs.map((p, i) => (
+            <p className="body-copy" key={i}>{p}</p>
+          ))}
+        </div>
+      )}
 
       {branch.director && (
         <div className="branch-director-card">

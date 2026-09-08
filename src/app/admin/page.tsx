@@ -29,6 +29,7 @@ export default async function AdminDashboardPage() {
         <p style={{ marginTop: 16 }}><a className="text-link" href="/admin/media">이미지 관리 <span>→</span></a></p>
         <p style={{ marginTop: 10 }}><a className="text-link" href="/admin/pages">페이지 관리 <span>→</span></a></p>
         <p style={{ marginTop: 10 }}><a className="text-link" href="/admin/blogs">칼럼 관리 <span>→</span></a></p>
+        <p style={{ marginTop: 10 }}><a className="text-link" href="/admin/staff">의료진 관리 <span>→</span></a></p>
 
         <h2 style={{ marginTop: 40, fontSize: 20 }}>문의 내역 ({inquiries?.length ?? 0}건)</h2>
         <ul style={{ marginTop: 12 }}>
