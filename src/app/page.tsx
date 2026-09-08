@@ -2,11 +2,15 @@ import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
 import { MainBranchCards } from "@/components/MainBranchCards";
 import { MediaCarousel } from "@/components/MediaCarousel";
 import { Reveal } from "@/components/Reveal";
+import { CountUp } from "@/components/CountUp";
 import { getBranches } from "@/lib/data/branches";
 import { getPublishedBlogs } from "@/lib/data/blogs";
-import { getPageImage } from "@/lib/data/business";
+import { getHeadlineStats, getPageImage } from "@/lib/data/business";
 import { getSitePage } from "@/lib/data/pages";
 import { heroTitleNodes } from "@/components/HeroTitle";
+
+// 히어로 하단 숫자 스트립엔 "명" 단위 방문객 통계만(만족도% 는 제외) — 캡처 레퍼런스 기준 3개.
+const HERO_STAT_LABELS = ["외래환자", "입원환자", "추나요법"];
 
 // site_pages/page_sections("home")가 아직 시딩되지 않았을 때의 폴백 — scripts/seed-page-sections.mjs 참고.
 const FALLBACK_EYEBROW = "PHIL NETWORK";
@@ -31,12 +35,14 @@ const careCards: [string, string, string][] = [
 const CARE_IMAGE_KEYS = ["care_01", "care_02", "care_03", "care_04", "care_05", "care_06"];
 
 export default async function Home() {
-  const [branches, posts, careImages, page] = await Promise.all([
+  const [branches, posts, careImages, page, headlineStats] = await Promise.all([
     getBranches(),
     getPublishedBlogs(8),
     Promise.all(CARE_IMAGE_KEYS.map((key) => getPageImage(key))),
     getSitePage("home"),
+    getHeadlineStats(),
   ]);
+  const heroStats = HERO_STAT_LABELS.map((label) => headlineStats.find((stat) => stat.label === label)).filter((stat) => stat != null);
 
   const sections = (page?.sections ?? []).filter((s) => s.is_visible);
   const cardTitles = sections.find((s) => s.kind === "cards")?.data.items?.map((item) => item.title) ?? [];
@@ -60,6 +66,16 @@ export default async function Home() {
               <a className="button button-dark" href="/about">네트워크 알아보기 <span>↗</span></a>
               <a className="text-link" href="/branches">지점 선택 <span>→</span></a>
             </div>
+            {heroStats.length > 0 && (
+              <div className="hero-stats">
+                {heroStats.map((stat) => (
+                  <div className="hero-stat" key={stat.label}>
+                    <span>{stat.label}</span>
+                    <strong><CountUp value={stat.value} suffix={stat.unit} /></strong>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
           <div className="hero-bottom"><span>SCROLL TO EXPLORE</span><span className="scroll-line" /></div>
         </section>
