@@ -15,7 +15,7 @@ export default async function AdminBlogEditPage({ params }: { params: Promise<{ 
     getAllStaff(),
     supabase
       .from("blogs")
-      .select("id, title, slug, excerpt, sections_html, author_id, featured_image_id, featured_image:media(id, storage_path, alt)")
+      .select("id, title, slug, excerpt, sections_html, author_id, featured_image_id, featured_image:media!blogs_featured_image_id_fkey(id, storage_path, alt)")
       .eq("id", id)
       .maybeSingle(),
   ]);
