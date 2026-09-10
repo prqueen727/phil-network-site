@@ -78,6 +78,8 @@ export function StaffEditor({ staff }: { staff: EditableStaff | null }) {
       }
       setPhotoUrl(json.url);
       setPhotoMsg("업로드 완료.");
+      // 업로드 완료된 파일은 input에서 비워서, 저장 시 "아직 업로드 안 한 파일이 남아있음" 오탐이 안 나게 한다.
+      if (fileRef.current) fileRef.current.value = "";
     } catch {
       setPhotoMsg("업로드에 실패했습니다. 파일 용량이 너무 크거나 네트워크 문제일 수 있습니다.");
     } finally {
@@ -88,6 +90,16 @@ export function StaffEditor({ staff }: { staff: EditableStaff | null }) {
   async function save() {
     if (!name.trim()) {
       setSaveMsg({ ok: false, text: "이름을 입력해 주세요." });
+      return;
+    }
+    // ★사진 업로드가 끝나기 전에 저장을 누르면 photoUrl이 아직 반영되기 전 값으로 저장되던 버그 방지.
+    if (photoUploading) {
+      setSaveMsg({ ok: false, text: "사진 업로드가 끝날 때까지 잠시만 기다려 주세요." });
+      return;
+    }
+    // 사진 파일을 선택만 하고 "사진 업로드" 버튼을 누르지 않은 채 저장하면 사진이 반영되지 않으므로 미리 막는다.
+    if (fileRef.current?.files?.length) {
+      setSaveMsg({ ok: false, text: "선택한 사진이 아직 업로드되지 않았습니다. 먼저 '사진 업로드' 버튼을 눌러주세요." });
       return;
     }
     setSaving(true);
@@ -194,8 +206,8 @@ export function StaffEditor({ staff }: { staff: EditableStaff | null }) {
 
       <div className="admin-form" style={{ marginTop: 40 }}>
         {saveMsg && <p style={{ color: saveMsg.ok ? "#2f6b4f" : "#b3273f", fontSize: 13, marginBottom: 12 }}>{saveMsg.text}</p>}
-        <button type="button" className="button button-dark" disabled={saving} onClick={save}>
-          {saving ? "저장 중…" : "저장"}
+        <button type="button" className="button button-dark" disabled={saving || photoUploading} onClick={save}>
+          {saving ? "저장 중…" : photoUploading ? "사진 업로드 대기 중…" : "저장"}
         </button>
       </div>
     </div>
